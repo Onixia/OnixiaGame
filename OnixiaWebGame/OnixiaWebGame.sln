@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onixia.Data", "Onixia.Data\Onixia.Data.csproj", "{7DB2C2A5-4C4F-498A-B7DD-A4ACCA352CF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onixia.Models", "Onixia.Models\Onixia.Models.csproj", "{8C67B592-98AA-4E63-9411-3098E58C1D86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnixiaWebApplication", "OnixiaWebApplication\OnixiaWebApplication.csproj", "{661D0390-BE38-469A-A32A-62A2EAEC4E18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onixia.Tests", "Onixia.Tests\Onixia.Tests.csproj", "{013DC765-AD7F-467F-8B42-A5086935B834}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DB2C2A5-4C4F-498A-B7DD-A4ACCA352CF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DB2C2A5-4C4F-498A-B7DD-A4ACCA352CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DB2C2A5-4C4F-498A-B7DD-A4ACCA352CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DB2C2A5-4C4F-498A-B7DD-A4ACCA352CF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C67B592-98AA-4E63-9411-3098E58C1D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C67B592-98AA-4E63-9411-3098E58C1D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C67B592-98AA-4E63-9411-3098E58C1D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C67B592-98AA-4E63-9411-3098E58C1D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{661D0390-BE38-469A-A32A-62A2EAEC4E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{661D0390-BE38-469A-A32A-62A2EAEC4E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{661D0390-BE38-469A-A32A-62A2EAEC4E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{661D0390-BE38-469A-A32A-62A2EAEC4E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{013DC765-AD7F-467F-8B42-A5086935B834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{013DC765-AD7F-467F-8B42-A5086935B834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{013DC765-AD7F-467F-8B42-A5086935B834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{013DC765-AD7F-467F-8B42-A5086935B834}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
