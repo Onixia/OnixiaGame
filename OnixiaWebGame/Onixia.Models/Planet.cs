@@ -7,6 +7,15 @@
 
     public class Planet
     {
+        private ICollection<Building> buildings;
+        private ICollection<Ship> ships;
+ 
+        public Planet()
+        {
+            this.buildings = new HashSet<Building>();
+            this.ships = new HashSet<Ship>();
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -26,9 +35,17 @@
         [Required]
         public int Fields { get; set; }
 
-        public virtual ICollection<Building> Buildings { get; set; }
+        public virtual ICollection<Building> Buildings 
+        {
+            get { return this.buildings; }
+            set { this.buildings = value; }
+        }
 
-        public virtual ICollection<Ship> Ships { get; set; }
+        public virtual ICollection<Ship> Ships 
+        {
+            get { return this.ships; }
+            set { this.ships = value; }
+        }
 
         [Required]
         [Range(1, 5)]

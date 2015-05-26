@@ -10,12 +10,11 @@
 
     public class User : IdentityUser
     {
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
+        private ICollection<User> ignoredUsers;
+ 
+        public User()
         {
-            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
-            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-            // Add custom user claims here
-            return userIdentity;
+            this.ignoredUsers = new HashSet<User>();
         }
 
         public double? Points { get; set; }
@@ -30,10 +29,22 @@
 
         public int Rank { get; set; }
 
-        public virtual ICollection<User> IgnoredUser { get; set; }
+        public virtual ICollection<User> IgnoredUsers 
+        {
+            get { return this.ignoredUsers; }
+            set { this.ignoredUsers = value; }
+        }
 
         public DateTime RegistrationDate { get; set; }
 
         public bool IsActive { get; set; }
+
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
+        {
+            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
+            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+            // Add custom user claims here
+            return userIdentity;
+        }
     }
 }
