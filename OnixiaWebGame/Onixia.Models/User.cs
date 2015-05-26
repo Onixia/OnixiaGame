@@ -1,5 +1,7 @@
 ﻿namespace Onixia.Models
 {
+    using System;
+    using System.Collections.Generic;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
@@ -15,5 +17,23 @@
             // Add custom user claims here
             return userIdentity;
         }
+
+        public double? Points { get; set; }
+
+        public double? WarPoints { get; set; }
+
+        public int? Credits { get; set; }
+
+        public int? AllianceId { get; set; }
+
+        public virtual Alliance Alliance { get; set; }
+
+        public int Rank { get; set; }
+
+        public virtual ICollection<User> IgnoredUser { get; set; }
+
+        public DateTime RegistrationDate { get; set; }
+
+        public bool IsActive { get; set; }
     }
 }
