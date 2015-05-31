@@ -30,7 +30,7 @@
         public string Name { get; set; }
 
         [Required]
-        public Resource Resources { get; set; }
+        public ResourceBank PlayerResourceses { get; set; }
 
         [Required]
         public int Fields { get; set; }

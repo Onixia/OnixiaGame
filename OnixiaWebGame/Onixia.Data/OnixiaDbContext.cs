@@ -1,4 +1,6 @@
-﻿namespace Onixia.Data
+﻿using Onixia.Data.Migrations;
+
+namespace Onixia.Data
 {
     using System.Data.Entity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -9,6 +11,7 @@
         public OnixiaDbContext()
             : base("DefaultConnection", false)
         {
+            Database.SetInitializer<OnixiaDbContext>(new MigrateDatabaseToLatestVersion<OnixiaDbContext,OnixiaDbMigrationConfig>());
         }
 
         public static OnixiaDbContext Create()

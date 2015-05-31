@@ -49,8 +49,9 @@
     <Compile Include="Alliance.cs" />
     <Compile Include="Asteroid.cs" />
     <Compile Include="Building.cs" />
+    <Compile Include="Mission.cs" />
     <Compile Include="Planet.cs" />
-    <Compile Include="Resource.cs" />
+    <Compile Include="ResourceBank.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
