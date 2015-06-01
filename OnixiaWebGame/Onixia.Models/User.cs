@@ -11,11 +11,10 @@
     public class User : IdentityUser
     {
         private ICollection<User> ignoredUsers;
-;
         public User()
         {
             this.ignoredUsers = new HashSet<User>();
-            this.Ships        = new Dictionary<string, int>();
+            this.Ships        = new Dictionary<Ship, int>();
         }
 
         public double? Points                { get; set; }

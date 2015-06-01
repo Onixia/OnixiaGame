@@ -53,6 +53,7 @@
     <Compile Include="PlayerMission.cs" />
     <Compile Include="ResourceBank.cs" />
     <Compile Include="Ship.cs" />
+    <Compile Include="ShipOrder.cs" />
     <Compile Include="SpaceObject.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -19,8 +19,6 @@ namespace Onixia.Data
             return new OnixiaDbContext();
         }
 
-        public IDbSet<Alliance> Alliances { get; set; }
-
         public IDbSet<Asteroid> Asteroids { get; set; }
 
         public IDbSet<Building> Buildings { get; set; }

@@ -8,8 +8,6 @@
     {
         IDbSet<User> Users { get; set; } 
 
-        IDbSet<Alliance> Alliances { get; set; }
-
         IDbSet<Asteroid> Asteroids { get; set; }
 
         IDbSet<Building> Buildings { get; set; }

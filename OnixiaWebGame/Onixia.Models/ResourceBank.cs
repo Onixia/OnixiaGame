@@ -38,29 +38,37 @@ namespace Onixia.Models
         #region Operators and Methods
         public static ResourceBank operator -(ResourceBank a, ResourceBank b)
         {
-            a.Crystal   -= b.Crystal;
-            a.Energy    -= b.Energy;
-            a.Gas       -= b.Gas;
-            a.Metal     -= b.Metal;
+            ResourceBank c = new ResourceBank(a.Metal,
+                                              a.Crystal,
+                                              a.Gas,
+                                              a.Energy);
+            c.Crystal -= b.Crystal;
+            c.Energy  -= b.Energy;
+            c.Gas     -= b.Gas;
+            c.Metal   -= b.Metal;
 
-            return a;
+            return c;
         }
         public static ResourceBank operator +(ResourceBank a, ResourceBank b)
         {
-            a.Crystal   += b.Crystal;
-            a.Energy    += b.Energy;
-            a.Gas       += b.Gas;
-            a.Metal     += b.Metal;
+            ResourceBank c = new ResourceBank(a.Metal,
+                                              a.Crystal,
+                                              a.Gas,
+                                              a.Energy);
+            c.Crystal   += b.Crystal;
+            c.Energy    += b.Energy;
+            c.Gas       += b.Gas;
+            c.Metal     += b.Metal;
 
-            return a;
+            return c;
         }
 
         public bool HasEnoughFor(ResourceBank b)
         {
-            if (this.Crystal > b.Crystal &&
-                this.Energy  > b.Energy &&
-                this.Metal   > b.Metal &&
-                this.Gas     > b.Gas)
+            if (this.Crystal >= b.Crystal &&
+                this.Energy  >= b.Energy &&
+                this.Metal   >= b.Metal &&
+                this.Gas     >= b.Gas)
             {
                 return true;
             }
