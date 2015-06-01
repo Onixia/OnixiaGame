@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8C67B592-98AA-4E63-9411-3098E58C1D86}</ProjectGuid>
+    <ProjectGuid>{7D65208E-D1B5-4CDE-BE5C-A8A2992EDFBE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Onixia.Models</RootNamespace>
-    <AssemblyName>Onixia.Models</AssemblyName>
+    <RootNamespace>Onixia.Logic</RootNamespace>
+    <AssemblyName>Onixia.Logic</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,14 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AspNet.Identity.Core">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,22 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ObjectTemplates\Building.cs" />
-    <Compile Include="ObjectTemplates\Mission.cs" />
-    <Compile Include="ObjectTemplates\Ship.cs" />
-    <Compile Include="PlayerAssets\PlayerBuilding.cs" />
-    <Compile Include="PlayerAssets\PlayerMission.cs" />
-    <Compile Include="PlayerAssets\ResourceBank.cs" />
-    <Compile Include="Requirements\BuildingRequirement.cs" />
-    <Compile Include="Requirements\Requirement.cs" />
-    <Compile Include="Requirements\ShipRequirement.cs" />
-    <Compile Include="Requirements\TechnologyRequirement.cs" />
-    <Compile Include="ShipOrder.cs" />
-    <Compile Include="SpaceObjects\Asteroid.cs" />
-    <Compile Include="SpaceObjects\Planet.cs" />
-    <Compile Include="SpaceObjects\SpaceObject.cs" />
-    <Compile Include="ObjectTemplates\Technology.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

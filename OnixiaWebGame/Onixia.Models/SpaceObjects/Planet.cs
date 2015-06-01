@@ -19,7 +19,6 @@ namespace Onixia.Models
             this.buildings = new HashSet<Building>();
             this.ships = new HashSet<Ship>();
         }
-
         public int Id { get; set; }
 
         [Required]
@@ -51,6 +50,7 @@ namespace Onixia.Models
             set { this.ships = value; }
         }
 
+        [Column(TypeName = "datetime2")]
         public DateTime? LastUpdatedOn { get; set; }
 
         public bool IsMainPlanet { get; set; }

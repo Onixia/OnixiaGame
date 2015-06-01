@@ -43,9 +43,9 @@
             return this.set.Find(id);
         }
 
-        public IQueryable<T> All()
+        public ICollection<T> All()
         {
-            return this.set;
+            return this.set.ToList();
         }
 
         public T Update(object id)

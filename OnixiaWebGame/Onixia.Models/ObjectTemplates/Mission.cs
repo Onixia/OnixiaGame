@@ -7,24 +7,25 @@
      * Mission table contains the templates
      * for every mission doable by players.
      */
-    class Mission
+
+    public class Mission
     {
         [Required]
-        public int Id                              { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        public TimeSpan MissionLength              { get; set; }
+        public TimeSpan MissionLength { get; set; }
 
         public virtual ResourceBank ResourceReward { get; set; }
 
-        public MissionType Type                    { get; set; }
+        public MissionType Type { get; set; }
 
-        public int Difficulty                      { get; set; }
+        public int Difficulty { get; set; }
     }
-    /*
+        /*
      * Enum contains every type of mission.
      */
-    enum MissionType
+    public enum MissionType
     {
         Attack,       // Engage in battle with another 
         Astromining,  // Send Probe to asteroid for gas.
