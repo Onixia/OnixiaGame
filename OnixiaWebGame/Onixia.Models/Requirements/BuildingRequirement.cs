@@ -1,6 +1,8 @@
 ﻿namespace Onixia.Models.Requirements
 {
     using System.ComponentModel.DataAnnotations;
+    using Onixia.Models.ObjectTemplates;
+
     public class BuildingRequirement : Requirement
     {
         [Required]

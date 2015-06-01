@@ -50,12 +50,13 @@
     <Compile Include="Building.cs" />
     <Compile Include="Mission.cs" />
     <Compile Include="Planet.cs" />
+    <Compile Include="PlayerAsset.cs" />
     <Compile Include="PlayerMission.cs" />
-    <Compile Include="Requirement.cs" />
     <Compile Include="ResourceBank.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="ShipOrder.cs" />
     <Compile Include="SpaceObject.cs" />
+    <Compile Include="Technology.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

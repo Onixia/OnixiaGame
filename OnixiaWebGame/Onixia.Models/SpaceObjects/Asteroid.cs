@@ -1,5 +1,6 @@
 ﻿namespace Onixia.Models
 {
+    using Onixia.Models.PlayerAssets;
     using System.ComponentModel.DataAnnotations;
     /// <summary>
     /// Class used to denote the position of a mission.

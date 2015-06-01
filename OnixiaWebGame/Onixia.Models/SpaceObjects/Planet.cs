@@ -1,9 +1,13 @@
-﻿namespace Onixia.Models
+﻿
+
+namespace Onixia.Models
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Onixia.Models.ObjectTemplates;
+    using Onixia.Models.PlayerAssets;
 
     public class Planet : SpaceObject
     {
