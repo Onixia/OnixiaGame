@@ -46,13 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alliance.cs" />
     <Compile Include="Asteroid.cs" />
     <Compile Include="Building.cs" />
     <Compile Include="Mission.cs" />
     <Compile Include="Planet.cs" />
+    <Compile Include="PlayerMission.cs" />
     <Compile Include="ResourceBank.cs" />
     <Compile Include="Ship.cs" />
+    <Compile Include="SpaceObject.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

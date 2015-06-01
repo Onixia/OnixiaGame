@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Planet
+    public class Planet : SpaceObject
     {
         private ICollection<Building> buildings;
         private ICollection<Ship> ships;
@@ -30,7 +30,7 @@
         public string Name { get; set; }
 
         [Required]
-        public ResourceBank PlayerResourceses { get; set; }
+        public ResourceBank PlanetResourceses { get; set; }
 
         [Required]
         public int Fields { get; set; }
@@ -46,18 +46,6 @@
             get { return this.ships; }
             set { this.ships = value; }
         }
-
-        [Required]
-        [Range(1, 5)]
-        public int GalaxyCoordinate { get; set; }
-
-        [Required]
-        [Range(1, 500)]
-        public int SolarSystemCoordinate { get; set; }
-
-        [Required]
-        [Range(1, 15)]
-        public int PlanetCoordinate { get; set; }
 
         public DateTime? LastUpdatedOn { get; set; }
 

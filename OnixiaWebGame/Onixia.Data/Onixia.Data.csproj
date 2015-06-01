@@ -51,6 +51,7 @@
     <Compile Include="Contracts\IOnixiaData.cs" />
     <Compile Include="Contracts\IOnixiaDbContext.cs" />
     <Compile Include="Contracts\IRepository.cs" />
+    <Compile Include="Migrations\OnixiaDbMigrationConfig.cs" />
     <Compile Include="OnixiaDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />

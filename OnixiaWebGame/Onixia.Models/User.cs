@@ -11,23 +11,20 @@
     public class User : IdentityUser
     {
         private ICollection<User> ignoredUsers;
- 
+;
         public User()
         {
             this.ignoredUsers = new HashSet<User>();
+            this.Ships        = new Dictionary<string, int>();
         }
 
-        public double? Points { get; set; }
+        public double? Points                { get; set; }
 
-        public double? WarPoints { get; set; }
+        public double? WarPoints             { get; set; }
 
-        public int? Credits { get; set; }
+        public int? Credits                  { get; set; }
 
-        public int? AllianceId { get; set; }
-
-        public virtual Alliance Alliance { get; set; }
-
-        public int Rank { get; set; }
+        public int Rank                      { get; set; }
 
         public virtual ICollection<User> IgnoredUsers 
         {
@@ -35,10 +32,11 @@
             set { this.ignoredUsers = value; }
         }
 
-        public DateTime RegistrationDate { get; set; }
+        public DateTime RegistrationDate     { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsActive                 { get; set; }
 
+        public virtual Dictionary<Ship, int> Ships { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
