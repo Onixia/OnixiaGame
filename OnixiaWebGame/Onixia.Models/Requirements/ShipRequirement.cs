@@ -2,7 +2,8 @@
 {
     using Onixia.Models.ObjectTemplates;
     using System.ComponentModel.DataAnnotations;
-    class ShipRequirement : Requirement
+
+    public class ShipRequirement : Requirement
     {
         [Required]
         public Ship RequiredShip { get; set; }

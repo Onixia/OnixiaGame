@@ -29,10 +29,14 @@
         [Range(1, 5)]
         public int MaxLevel       { get; set; }
 
+        public int CurrentLevel   { get; set; }
+
         [Required]
         public ICollection<BuildingRequirement> BuildingRequirements { get; set; }
 
         [Required]  
         public ICollection<ShipRequirement> ShipRequirements         { get; set; }
+
+        public Building NextLevelBuilding                            { get; set; }
     }
 }

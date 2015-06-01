@@ -19,7 +19,6 @@ namespace Onixia.Models
             this.buildings = new HashSet<Building>();
             this.ships = new HashSet<Ship>();
         }
-
         public int Id { get; set; }
 
         [Required]

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Onixia.Models
+﻿namespace Onixia.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using Onixia.Models.ObjectTemplates;
 
     /// <summary>
     /// This class tracks an order of a number of ships so that upon completion 
@@ -26,5 +23,7 @@ namespace Onixia.Models
         public DateTime OrderMade { get; set; }
 
         public Dictionary<Ship, int> ShipsCount { get; set; }
+
+        public Planet TargetPlanet { get; set; }
     }
 }
