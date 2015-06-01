@@ -22,7 +22,9 @@ namespace Onixia.Models
 
         [Key]
         public int Id { get; set; }
+
         public DateTime OrderMade { get; set; }
-        public virtual Dictionary<Ship, int> ShipsCount { get; set; }
+
+        public Dictionary<Ship, int> ShipsCount { get; set; }
     }
 }

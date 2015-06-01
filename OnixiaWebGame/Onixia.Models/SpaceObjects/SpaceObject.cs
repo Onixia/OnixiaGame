@@ -7,6 +7,7 @@
         #region Properties
         [Required]
         public float PosX { get; set; }
+    
         [Required]
         public float PosY { get; set; }
         #endregion

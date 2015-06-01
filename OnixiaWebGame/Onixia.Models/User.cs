@@ -36,6 +36,8 @@
         public bool IsActive                 { get; set; }
 
         public virtual Dictionary<Ship, int> Ships { get; set; }
+
+        public virtual Dictionary<Building, bool> Buildings { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

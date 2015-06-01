@@ -1,10 +1,7 @@
-using System;
-using System.Runtime.CompilerServices;
 
-namespace Onixia.Models
+namespace Onixia.Models.PlayerAssets
 {
     using System.ComponentModel.DataAnnotations.Schema;
-
     [ComplexType]
     public class ResourceBank
     {
