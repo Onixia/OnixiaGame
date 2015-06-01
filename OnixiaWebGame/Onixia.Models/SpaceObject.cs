@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Onixia.Models
+﻿namespace Onixia.Models
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
     public class SpaceObject
     {
-
         #region Properties
         [Required]
         public float PosX { get; set; }
