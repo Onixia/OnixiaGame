@@ -17,29 +17,21 @@ namespace Onixia.Models
   //`b_requirements` text NOT NULL,
   //`s_requirements` text NOT NULL
 
-        public int Id { get; set; }
-
+        public int Id                         { get; set; }
         [Required]
         [StringLength(50, ErrorMessage = "The {0} must be between {1} and {2} characteres long!", MinimumLength = 3)]
-        public string Name { get; set; }
-
+        public string Name                    { get; set; }
         [Required]
-        public string Description { get; set; }
-
+        public string Description             { get; set; }
         [Required]
         [Range(1, 5)]
-        public int MaxLevel { get; set; }
-
+        public int MaxLevel                   { get; set; }
         [Required]
-        public string BuildingRequirements { get; set; }
-
+        public string BuildingRequirements    { get; set; }
         [Required]
-        public string ShipRequirements { get; set; }
-
-        public bool IsConstructed { get; set; }
-
-        public DateTime CreatedOn { get; set; }
-
-        public DateTime ConstructedOn { get; set; }
+        public string ShipRequirements        { get; set; }
+        public bool IsConstructed             { get; set; }
+        public DateTime CreatedOn             { get; set; }
+        public DateTime ConstructedOn         { get; set; }
     }
 }
