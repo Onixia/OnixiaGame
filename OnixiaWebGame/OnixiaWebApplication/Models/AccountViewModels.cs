@@ -49,9 +49,9 @@ namespace OnixiaWebApplication.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "Username")]
         [EmailAddress]
-        public string Email { get; set; }
+        public string Username { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -66,7 +66,7 @@ namespace OnixiaWebApplication.Models
     {
         [Required]
         [DataType(DataType.Text)]
-        [Display(Name = "Display Name")]
+        [Display(Name = "Username")]
         public string Username { get; set; }
         [Required]
         [EmailAddress]
@@ -74,7 +74,7 @@ namespace OnixiaWebApplication.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 3)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -93,7 +93,7 @@ namespace OnixiaWebApplication.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 3)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

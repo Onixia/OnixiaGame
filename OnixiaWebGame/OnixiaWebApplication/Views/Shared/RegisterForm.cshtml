@@ -10,7 +10,7 @@
     @Html.AntiForgeryToken()
     
         <section id="loginForm">
-            <h2>@ViewBag.Title.</h2>
+            <h2>@ViewBag.Title</h2>
             @Html.ValidationSummary("", new { @class = "text-danger" })
             <div class="form-group">
                 @Html.LabelFor(m => m.Username, new { @class = "col-md-10 col-md-offset-1" })
