@@ -209,13 +209,59 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-<<<<<<< HEAD
+    <Content Include="Content\Images\404.png" />
+    <Content Include="Content\Images\admin-panel-body.png" />
+    <Content Include="Content\Images\admin-panel.png" />
+    <Content Include="Content\Images\alliance-player-icons.png" />
+    <Content Include="Content\Images\attack-icon.png" />
+    <Content Include="Content\Images\back-next-button-over.png" />
+    <Content Include="Content\Images\background.jpg" />
+    <Content Include="Content\Images\blank.png" />
+    <Content Include="Content\Images\button.png" />
+    <Content Include="Content\Images\close-button.png" />
+    <Content Include="Content\Images\header-title-bg.png" />
+    <Content Include="Content\Images\header-title-button.png" />
+    <Content Include="Content\Images\header.png" />
+    <Content Include="Content\Images\header_bg.png" />
+    <Content Include="Content\Images\icons.png" />
+    <Content Include="Content\Images\item-bg.png" />
+    <Content Include="Content\Images\line-separator.png" />
+    <Content Include="Content\Images\loading.gif" />
     <Content Include="Content\Images\main_background.jpg" />
+    <Content Include="Content\Images\menu-tabs.png" />
+    <Content Include="Content\Images\messages-panel.png" />
+    <Content Include="Content\Images\msg-avatar.png" />
+    <Content Include="Content\Images\msg-bg.png" />
+    <Content Include="Content\Images\msg-button.png" />
+    <Content Include="Content\Images\msg-icon.png" />
+    <Content Include="Content\Images\msg-icons.png" />
+    <Content Include="Content\Images\msg-panel.png" />
+    <Content Include="Content\Images\nav-information-icon.png" />
+    <Content Include="Content\Images\nav-main-icon.png" />
+    <Content Include="Content\Images\nav-personal-icon.png" />
+    <Content Include="Content\Images\nav-planet-icon.png" />
     <Content Include="Content\Images\onixia-logo2.png" />
     <Content Include="Content\Images\onixia.png" />
-=======
+    <Content Include="Content\Images\opt-item.png" />
+    <Content Include="Content\Images\paging-buttons.png" />
+    <Content Include="Content\Images\panel-bg.png" />
+    <Content Include="Content\Images\panel-bottom.png" />
+    <Content Include="Content\Images\panel-title.png" />
+    <Content Include="Content\Images\player-info-bg.png" />
+    <Content Include="Content\Images\player-info-panel.png" />
+    <Content Include="Content\Images\ranks.png" />
+    <Content Include="Content\Images\res-logos.png" />
+    <Content Include="Content\Images\settings-subnav-bts.png" />
+    <Content Include="Content\Images\ship-box.png" />
+    <Content Include="Content\Images\shipinfo-panel.png" />
+    <Content Include="Content\Images\spy-icon.png" />
+    <Content Include="Content\Images\system-msg-body.png" />
+    <Content Include="Content\Images\system-msg-panel.png" />
+    <Content Include="Content\Images\table-head.png" />
+    <Content Include="Content\Images\table-td-active.png" />
+    <Content Include="Content\Images\up-down-buttons.png" />
+    <Content Include="Content\Images\vertical-line.png" />
     <Content Include="Content\OnixiaStyles.css" />
->>>>>>> 0b92707df32eca6fce3d8da1d550ca815a316508
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -277,10 +323,12 @@
     <Content Include="Views\Home\Splash.cshtml" />
     <Content Include="Views\Shared\LoginForm.cshtml" />
     <Content Include="Views\Shared\RegisterForm.cshtml" />
+    <Content Include="Views\Shared\_LoggedInLayout.cshtml" />
+    <Content Include="Views\Game\_ViewStart.cshtml" />
+    <Content Include="Views\Buildings\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

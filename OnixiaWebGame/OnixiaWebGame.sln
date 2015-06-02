@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{EAF945
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onixia.Logic", "Onixia.Logic\Onixia.Logic.csproj", "{7D65208E-D1B5-4CDE-BE5C-A8A2992EDFBE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{F8DF7F72-D91A-47FC-ABAC-C5C170068053}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,5 +51,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7DB2C2A5-4C4F-498A-B7DD-A4ACCA352CF7} = {F8DF7F72-D91A-47FC-ABAC-C5C170068053}
+		{8C67B592-98AA-4E63-9411-3098E58C1D86} = {F8DF7F72-D91A-47FC-ABAC-C5C170068053}
+		{7D65208E-D1B5-4CDE-BE5C-A8A2992EDFBE} = {F8DF7F72-D91A-47FC-ABAC-C5C170068053}
 	EndGlobalSection
 EndGlobal

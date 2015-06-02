@@ -1,14 +1,9 @@
-﻿
 ﻿namespace Onixia.Data
 {
     using System.Data.Entity;
-
     using Microsoft.AspNet.Identity.EntityFramework;
-
     using Migrations;
-
-    using Models;
-
+    using Models;    
     using Onixia.Data.Migrations;
     using Onixia.Models.ObjectTemplates;
     using Models.ObjectTemplates;
@@ -41,8 +36,8 @@
         public IDbSet<BuildingRequirement> BuildingRequirements { get; set; }
 
         public IDbSet<ShipRequirement> ShipRequirements { get; set; }
-        
-        public IDbSet<PlayerQuest> PlayerMissions { get; set; }
+
+        public IDbSet<PlayerQuest> PlayerQuests { get; set; }
 
         public new IDbSet<T> Set<T>() where T : class
         {
