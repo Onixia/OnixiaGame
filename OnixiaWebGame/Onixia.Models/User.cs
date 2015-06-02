@@ -16,6 +16,7 @@ namespace Onixia.Models
         public User()
         {
             this.ignoredUsers = new HashSet<User>();
+            this.Planets = new HashSet<Planet>();
             this.RegistrationDate = DateTime.Now;
         }
 
@@ -39,6 +40,8 @@ namespace Onixia.Models
         public bool IsActive                 { get; set; }
 
         public bool IsResearching            { get; set; }
+
+        public virtual ICollection<Planet> Planets   { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

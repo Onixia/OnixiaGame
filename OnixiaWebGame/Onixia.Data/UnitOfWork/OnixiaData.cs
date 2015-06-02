@@ -63,6 +63,11 @@
         {
             get { return this.GetRepository<Quest>(); }
         }
+
+        public IRepository<PlanetBuilding> PlanetBuildings
+        {
+            get { return this.GetRepository<PlanetBuilding>(); }
+        }
         IRepository<User> IOnixiaData.Users
         {
             get { return this.GetRepository<User>(); }

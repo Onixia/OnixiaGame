@@ -1,4 +1,8 @@
-﻿namespace OnixiaWebApplication.Controllers
+﻿using System;
+using System.Collections.Generic;
+using Onixia.Models.PlayerAssets;
+
+namespace OnixiaWebApplication.Controllers
 {
     using System.Linq;
     using System.Threading.Tasks;
@@ -142,7 +146,9 @@
         {
             if (ModelState.IsValid)
             {
-                var user = new User {UserName = model.Username, Email = model.Email};
+                
+                var user = new User {UserName = model.Username, Email = model.Email, Planets = new HashSet<Planet>()};
+                
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -162,6 +168,7 @@
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
 
         //
         // GET: /Account/ConfirmEmail

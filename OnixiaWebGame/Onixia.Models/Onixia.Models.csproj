@@ -49,10 +49,10 @@
     <Compile Include="ObjectTemplates\Building.cs" />
     <Compile Include="ObjectTemplates\Quest.cs" />
     <Compile Include="ObjectTemplates\Ship.cs" />
+    <Compile Include="PlayerAssets\PlanetBuilding.cs" />
     <Compile Include="PlayerAssets\PlayerQuest.cs" />
     <Compile Include="PlayerAssets\ResourceBank.cs" />
     <Compile Include="Requirements\BuildingRequirement.cs" />
-    <Compile Include="Requirements\Requirement.cs" />
     <Compile Include="Requirements\ShipRequirement.cs" />
     <Compile Include="Requirements\TechnologyRequirement.cs" />
     <Compile Include="ShipOrder.cs" />

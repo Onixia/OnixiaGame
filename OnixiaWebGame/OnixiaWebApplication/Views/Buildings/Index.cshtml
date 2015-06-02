@@ -1,7 +1,12 @@
-﻿
+﻿@model OnixiaWebApplication.Models.CombinedBuildingsViewModel
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<div id="content">
+    <div class="page">
+        <h2 class="title">Buildings</h2>
+        @Html.DisplayFor(m => m.AllBuildings)
+    </div>
+</div>

@@ -11,12 +11,12 @@ namespace Onixia.Models
 
     public class Planet : SpaceObject
     {
-        private ICollection<Building> buildings;
+        private ICollection<PlanetBuilding> buildings;
         private ICollection<Ship> ships;
  
         public Planet()
         {
-            this.buildings = new HashSet<Building>();
+            this.buildings = new HashSet<PlanetBuilding>();
             this.ships = new HashSet<Ship>();
         }
         public int Id { get; set; }
@@ -38,7 +38,7 @@ namespace Onixia.Models
         [Required]
         public int Fields { get; set; }
 
-        public virtual ICollection<Building> Buildings 
+        public virtual ICollection<PlanetBuilding> Buildings 
         {
             get { return this.buildings; }
             set { this.buildings = value; }

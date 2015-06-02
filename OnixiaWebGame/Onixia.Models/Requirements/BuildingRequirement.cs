@@ -3,8 +3,11 @@
     using System.ComponentModel.DataAnnotations;
     using Onixia.Models.ObjectTemplates;
 
-    public class BuildingRequirement : Requirement
+    public class BuildingRequirement
     {
+        [Key]
+        public int Id { get; set; }
+
         [Required]
         public Building RequiredBuilding { get; set; }
         

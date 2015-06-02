@@ -1,4 +1,6 @@
-﻿namespace Onixia.Data
+﻿using Onixia.Data.Contracts;
+
+namespace Onixia.Data
 {
     using System.Data.Entity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -10,7 +12,7 @@
     using Models.PlayerAssets;
     using Models.Requirements;
 
-    public class OnixiaDbContext : IdentityDbContext<User>
+    public class OnixiaDbContext : IdentityDbContext<User>, IOnixiaDbContext
     {
         public OnixiaDbContext()
             : base("OnixiaGame", false)
@@ -38,6 +40,8 @@
         public IDbSet<ShipRequirement> ShipRequirements { get; set; }
 
         public IDbSet<PlayerQuest> PlayerQuests { get; set; }
+
+        public IDbSet<PlanetBuilding> PlanetBuildings { get; set; }
 
         public new IDbSet<T> Set<T>() where T : class
         {

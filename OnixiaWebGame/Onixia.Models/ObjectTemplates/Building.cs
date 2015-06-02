@@ -1,4 +1,8 @@
-﻿namespace Onixia.Models.ObjectTemplates
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using Onixia.Models.PlayerAssets;
+
+namespace Onixia.Models.ObjectTemplates
 {
     using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
@@ -13,8 +17,7 @@
     {
         public Building()
         {
-            this.BuildingRequirements = new List<BuildingRequirement>();
-            this.ShipRequirements     = new List<ShipRequirement>();
+            this.BuildingRequirements = new HashSet<BuildingRequirement>();
         }
         public int Id             { get; set; }
 
@@ -29,14 +32,11 @@
         [Range(1, 5)]
         public int MaxLevel       { get; set; }
 
-        public int CurrentLevel   { get; set; }
+        public ResourceBank ResourceRequirements { get; set; } 
+
+        public TimeSpan BuildTime { get; set; }
 
         [Required]
         public virtual ICollection<BuildingRequirement> BuildingRequirements { get; set; }
-
-        [Required]  
-        public virtual ICollection<ShipRequirement> ShipRequirements { get; set; }
-
-        public virtual Building NextLevelBuilding { get; set; }
     }
 }
