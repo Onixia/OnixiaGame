@@ -10,7 +10,14 @@ namespace OnixiaWebApplication.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Splash");
+            }
         }
 
         public ActionResult Splash()
