@@ -1,4 +1,6 @@
-﻿namespace Onixia.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Onixia.Models
 {
     using System;
     using System.Collections.Generic;
@@ -14,6 +16,7 @@
         public User()
         {
             this.ignoredUsers = new HashSet<User>();
+            this.RegistrationDate = DateTime.Now;
         }
 
         public double? Points                { get; set; }
@@ -30,6 +33,7 @@
             set { this.ignoredUsers = value; }
         }
 
+        [Column(TypeName = "datetime2")]
         public DateTime RegistrationDate     { get; set; }
 
         public bool IsActive                 { get; set; }
