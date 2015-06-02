@@ -1,7 +1,22 @@
-﻿
+﻿@using OnixiaWebApplication.Models
 @{
     ViewBag.Title = "Splash";
 }
 
-<h2>Splash</h2>
-
+@*<h2>Splash</h2>*@
+<div id='splashBackground'>
+    <div id="banner"></div>
+    <div>
+        <div id="register">
+            <div class="col-md-6 col-lg-5 col-sm-10 col-sm-offset-1 col-md-offset-0 col-lg-offset-1 col-xs-12">
+                @Html.Partial("RegisterForm", new RegisterViewModel())
+            </div>
+        </div>
+        <div id="login">
+            <div class="col-md-6 col-lg-5 col-sm-10 col-lg-offset-0 col-md-offset-0 col-sm-offset-1 col-xs-12">
+                @Html.Partial("LoginForm", new LoginViewModel())
+            </div>
+        </div>
+    </div>
+</div>
+<div class="spacer"></div>

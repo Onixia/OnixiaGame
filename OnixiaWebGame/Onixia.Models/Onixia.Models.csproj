@@ -49,7 +49,6 @@
     <Compile Include="ObjectTemplates\Building.cs" />
     <Compile Include="ObjectTemplates\Mission.cs" />
     <Compile Include="ObjectTemplates\Ship.cs" />
-    <Compile Include="PlayerAssets\PlayerBuilding.cs" />
     <Compile Include="PlayerAssets\PlayerMission.cs" />
     <Compile Include="PlayerAssets\ResourceBank.cs" />
     <Compile Include="Requirements\BuildingRequirement.cs" />

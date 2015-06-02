@@ -1,5 +1,6 @@
 ﻿namespace Onixia.Data.Contracts
 {
+    using Onixia.Models.ObjectTemplates;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using Models;

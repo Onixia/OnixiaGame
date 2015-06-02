@@ -1,10 +1,11 @@
-﻿using Onixia.Data.Migrations;
-
+﻿
 namespace Onixia.Data
 {
     using System.Data.Entity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
+    using Onixia.Data.Migrations;
+    using Onixia.Models.ObjectTemplates;
 
     public class OnixiaDbContext : IdentityDbContext<User>
     {

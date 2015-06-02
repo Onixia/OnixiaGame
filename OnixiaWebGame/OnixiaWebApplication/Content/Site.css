@@ -1,8 +1,12 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    max-width: 100%;
 }
 
+html {
+    max-width: 100%;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -15,10 +19,48 @@
 .dl-horizontal dt {
     white-space: normal;
 }
+#splashBackground {
+    background-image: url("Images/main_background.jpg");
+    position: absolute;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    min-height: 100%;
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+}
+@font-face {
+    font-family: squaretype;
+    src: url(../Fonts/squaretype.ttf);
+}
+#splashBackground h2{
+    color: #30efff;
+    text-align: center;
+    font-family: squaretype;
+}
+
+#splashBackground div {
+    color: #2d7;
+    text-align: left;
+    font-family: monospace;
+    font-size: 14pt;
+}
+#splashBackground input {
+    font-family: helvetica;
+    background-color: black;
+    border: 1px solid #253;
+    color: #5f9;
+    font-family: monospace;
+}
+#splashBackground input[type=button] {
+    padding: 50px;
+}
+#banner {
+    background: url("Images/onixia.png") no-repeat center ;
+    background-size: 30vh;
+    min-width:40%;
+    height: 50vh;
+}
+.spacer {
+    height: 100%;
+    width: 100%;
 }
