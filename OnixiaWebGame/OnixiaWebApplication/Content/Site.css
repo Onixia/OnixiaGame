@@ -2,6 +2,10 @@
     padding-top: 50px;
     padding-bottom: 20px;
     max-width: 100%;
+    background: url("Images/main_background.jpg") no-repeat;
+    background-size: cover;
+    background-position: center top;
+    
 }
 
 html {
@@ -19,15 +23,16 @@ html {
 .dl-horizontal dt {
     white-space: normal;
 }
-#splashBackground {
+
+/*#splashBackground {
     background-image: url("Images/main_background.jpg");
     position: absolute;
     left: 0;
     right: 0;
     max-width: 100%;
     min-height: 100%;
+}*/
 
-}
 @font-face {
     font-family: squaretype;
     src: url(../Fonts/squaretype.ttf);
@@ -69,7 +74,7 @@ html {
     max-width: 242px; 
     margin: 4px 0 0 5px; 
     font-size: 13px; 
-    background: url(../Content/images/panel-bg.png) repeat; 
+    background: url(images/panel-bg.png) repeat; 
     border-left: 1px solid #0073cc; 
     border-right: 1px solid #0073cc;
 }
@@ -84,7 +89,7 @@ html {
 }
 
 #leftNav .nav {
-    background: url(../Content/images/panel-title.png) no-repeat;
+    background: url(images/panel-title.png) no-repeat;
 }
 
 #leftNav .nav span {
@@ -93,19 +98,19 @@ html {
 }
 
 #leftNav .nav span.main {
-    background: url(../Content/images/nav-main-icon.png) no-repeat;
+    background: url(images/nav-main-icon.png) no-repeat;
 }
 
 #leftNav .nav span.planets {
-    background: url(../Content/images/nav-planet-icon.png) no-repeat;
+    background: url(images/nav-planet-icon.png) no-repeat;
 }
 
 #leftNav .nav span.information {
-    background: url(../Content/images/nav-information-icon.png) no-repeat;
+    background: url(images/nav-information-icon.png) no-repeat;
 }
 
 #leftNav .nav span.personal {
-    background: url(../Content/images/nav-personal-icon.png) no-repeat;
+    background: url(images/nav-personal-icon.png) no-repeat;
 }
 
 #leftNav .nav label {
@@ -121,7 +126,7 @@ html {
     max-width: 242px; 
     margin: 4px 0 0 5px; 
     font-size: 13px; 
-    background: url(../Content/images/panel-bg.png) repeat; 
+    background: url(images/panel-bg.png) repeat; 
     border-left: 1px solid #0073cc; 
     border-right: 1px solid #0073cc;}
 #leftNav ul {
@@ -129,7 +134,7 @@ html {
 }
 
 #leftNav li {
-    background: url(../Content/images/line-separator.png) 100% 100% repeat-x; 
+    background: url(images/line-separator.png) 100% 100% repeat-x; 
     overflow: hidden; 
     line-height: 30px; 
     text-shadow: 1px 1px 1px #000;
@@ -147,12 +152,12 @@ html {
 #leftNav .bottom {
     max-width: 244px; 
     height: 20px; 
-    background: url(../Content/images/panel-bottom.png) no-repeat; 
+    background: url(images/panel-bottom.png) no-repeat; 
     margin-left: 5px;
 }
 
 input, textarea, select {
-    background: url(../Content/images/panel-bg.png) repeat; 
+    background: url(images/panel-bg.png) repeat; 
     border: 1px solid #08586A; 
     color: #00C0FF; 
     padding: 2px 5px; 
@@ -168,13 +173,77 @@ input:focus, input.submit:hover, input.checkbox {
 input.ships, input.deleteMessages {
     max-width: 200px; 
     max-height: 22px; 
-    background: url(../Content/images/msg-button.png) no-repeat; 
+    background: url(images/msg-button.png) no-repeat; 
     border: 0; 
     color: #fff; 
     font-weight: bold; 
     margin: 0 0 20px 200px;
 }
 
+#header {height: 120px; background: url(images/header.png) center no-repeat;}
+#header .title {height: 25px; min-width: 989px; background: url(images/header-title-bg.png) repeat; border-bottom: 1px solid #013D4A; font-weight: bold; font-size: 11px;}
+#header .title .button {background: url(images/header-title-button.png) no-repeat; width: 100px; height: 20px; float: right; margin: 2px 10px 0 0; text-align: center; position: relative; z-index: 1;}
+#header .title .button:hover {background-position: 0 100%;}
+#header .title .button label {font-size: 9px; text-transform: uppercase; line-height: 19px; text-shadow: 1px 1px 1px #000;}
+#header .title .user {float: left; width: 200px; margin: 0 6px 0 20px; line-height: 25px; color: #A5A5A5; position: relative; z-index: 1;}
+#header .title .user a.logout {background: url(images/icons.png) 0px -14px no-repeat; width: 14px; height: 14px; float: left; margin: 5px 5px 0 0;}
+#header .title .servertime {float: left; background: url(images/icons.png) no-repeat; padding-left: 17px; margin-top: 5px; line-height: 13px;}
+#header .title .onixia {background: url(images/onixia-logo2.png) center no-repeat; width: 100%; min-width: 989px; height: 20px; position: absolute; top: 3px; z-index: 0;}
+#header .content {width: 989px; height: 94px; margin: 0 auto;}
+#header .content .res {float: left; margin: 0 0 0 90px; height: 100%;}
+#header .content .res .res-box {text-align: center; min-width: 80px; height: 90px; background: url(images/vertical-line.png) right no-repeat; float: left;}
+#header .content .res .last {background: none;}
+#header .content .res .res-box label {margin: 0px 10px; font-weight: bold; font-size: 11px;}
+#header .content .res .res-box .logo {width: 35px; height: 35px; margin: 15px auto 5px auto;}
+#header .content .res .res-box .metal {background: url(images/res-logos.png) no-repeat;}
+#header .content .res .res-box .crystal {background: url(images/res-logos.png) 0 -35px no-repeat;}
+#header .content .res .res-box .gas {background: url(images/res-logos.png) 0 -70px no-repeat;}
+#header .content .res .res-box .energy {background: url(images/res-logos.png) 0 -105px no-repeat;}
+#header .content .res .res-box .cubits {background: url(images/res-logos.png) 0 -140px no-repeat;}
+#header .content .menu {float: right; margin: 0 110px 0 0; text-align: center; height: 100%;}
+#header .content .menu label {font-size: 12px; line-height: 50px; font-weight: bold; text-shadow: 1px 1px 2px #3E9FCA; padding-right: 3px;}
+#header .content .menu .tab {width: 80px; height: 53px; background: url(images/menu-tabs.png) no-repeat; margin: 15px 0 0 10px; float: right;}
+#header .content .menu .tab:hover {background-position: 0 100%;}
+
+.tooltip {display: none; background: url(images/player-info-bg.png) repeat; font-size: 12px; padding: 0 10px 5px; line-height: 20px; text-shadow: 1px 1px 1px #000;}
+.tooltip h2 {width: 100%; height: 25px; background: #031A2B ; border-bottom: 1px solid #2F75A8; padding: 0 10px; line-height: 25px; margin: 0 0 5px -10px; font-weight: bold;}
+.tooltip b {font-weight: bold;}
+
+#res-title {width: 100%; height: 25px; background: url(images/panel-bg.png) repeat; border-bottom: 1px solid #313F41;}
+#res-title #res {width: 988px; margin: 0 auto; height: 25px;}
+#res-title #res .user {float: left; width: 150px; font-size: 12px; line-height: 23px; float: left; margin-left: 20px; color: #A5A5A5;}
+#res-title #res .user a.logout {background: url(images/icons.png) 0px -14px no-repeat; width: 14px; height: 14px; float: left; margin: 5px 5px 0 6px;}
+#res-title #res  label {margin: 0 20px 0 30px; line-height: 20px; font-weight: bold; font-size: 11px;}
+#res-title #res  .logo {background: url(images/res-logos.png) 0 0 no-repeat; height: 20px; float: right; margin-top: 2px;}
+#res-title #res .metal {background-position: -60px 0;}
+#res-title #res .crystal {background-position: -60px -20px;}
+#res-title #res .gas {background-position: -60px -40px;}
+#res-title #res .energy {background-position: -60px -60px;}
+#res-title #res .cubits {background-position: -60px -80px;}
+#res-title #res .servertime {background: url(images/icons.png) no-repeat; padding-left: 17px; float: left; margin-top: 5px; line-height: 13px;}
+
+
+#content {
+    max-width: 690px; 
+    margin: 15px 0 20px 40px; 
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid #0073cc;
+}
+#content .page {
+    margin: 15px; 
+    min-height: 500px; 
+    text-align: center;
+}
+#content .page h2.title {
+    font-size: 17px; 
+    text-align: left; 
+    padding: 0 0 10px 10px; 
+    margin-bottom: 10px; 
+    background: url(../images/line-separator.png) bottom repeat-x;
+}
+
+
 footer {
     text-align: center;
+    color: #fff;
 }

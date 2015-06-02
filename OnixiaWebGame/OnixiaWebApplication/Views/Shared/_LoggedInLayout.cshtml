@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,43 +10,141 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+<div id="res-title" style="display: none; position: fixed;">
+    <div id="res">        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="user">
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="logout"></a>
+            @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </div>
+        
+    }
+        <label id="serverTime" class="servertime"></label>
+        <!-- <div class="cubits logo"><label>{number_format $_SESSION.user.cubits,0,'.',' '}</label></div>-->
+        <div class="energy logo"><label>{number_format $energy,0,'.',' ' }</label>
+        </div>
+        <div class="gas logo"><label>{number_format $planet.gas,0,'.',' '}</label>
+        </div>
+        <div class="crystal logo"><label>{number_format $planet.crystal,0,'.',' '}</label>
+        </div>
+        <div class="metal logo"><label>{number_format $planet.metal,0,'.',' '}</label>
         </div>
     </div>
-    <div class="container body-content">
+</div>
+<div id="header">
+    <div class="title">
+        <div class="user">
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="user">
+                    <a href="javascript:document.getElementById('logoutForm').submit()" class="logout"></a>
+                    @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </div>
 
-        <div class="col-md-2">
-            @RenderPage("~/Views/Shared/_LeftNavbar.cshtml")
+            }
         </div>
-        <div class="col-md-8">
-            @RenderBody()
-        </div>
-        <div class="col-md-2"></div>
-        <hr />
-
+        <label id="servertime" class="servertime"></label>
+        <a href="settings.php">
+            <div class="button"><label class="link">{translate 'settings'}</label>
+            </div></a>
+        <a href="messages.php">
+            <div class="button"><label class="link">{translate 'messages'} {if $newMessages}[{$newMessages}]{/if}</label>
+            </div></a>
+        <div class="onixia"></div>
     </div>
-    <footer>
-        <p>&copy; @DateTime.Now.Year - Onixia Web Game</p>
-    </footer>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <div class="content">
+        <div class="res">
+            <!-- <div class="res-box metal">
+
+                <label>{number_format $planet.metal,0,'.',' '}</label>
+            </div>
+            <div class="res-box metal">
+
+                <label>{number_format $planet.metal,0,'.',' '}</label>
+            </div>
+            <div class="res-box metal">
+
+                <label>{number_format $planet.metal,0,'.',' '}</label>
+            </div>-->
+            <div class="res-box">
+                <div class="metal logo" title="{translate 'Metal'}"></div>
+                <label>{number_format $planet.metal,0,'.',' '}</label>
+            </div>
+            <div class="res-box">
+                <div class="crystal logo" title="{translate 'Crystal'}"></div>
+                <label>{number_format $planet.crystal,0,'.',' '}</label>
+            </div>
+            <div class="res-box">
+                <div class="gas logo" title="{translate 'Gas'}"></div>
+                <label>{number_format $planet.gas,0,'.',' '}</label>
+            </div>
+            <div class="res-box last">
+                <div class="energy logo" title="{translate 'Energy'}"></div>
+                <label>{number_format $energy,0,'.',' '}</label>
+            </div>
+            <!-- <div class="res-box last">
+                <div class="cubits logo" title="{translate 'Cubits'}"></div>
+                <label>{number_format $user.cubits,0,'.',' '}</label>
+            </div>-->
+        </div>
+        <div class="menu">
+            <a href="statistic.php">
+                <div class="tab">
+                    <label class="link">{translate 'Statistic'}</label>
+                </div>
+            </a>
+            <a href="recycles.php">
+                <div class="tab">
+                    <label class="link">{translate 'Recycles'}</label>
+                </div>
+            </a>
+            <a href="universe.php">
+                <div class="tab">
+                    <label class="link">{translate 'Universe'}</label>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Application name", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+<div class="container body-content">
+
+    <div class="col-md-3">
+        @RenderPage("~/Views/Shared/_LeftNavbar.cshtml")
+    </div>
+    <div class="col-md-9">
+        @RenderBody()
+    </div>
+    @*<div class="col-md-2"></div>*@
+
+</div>
+<footer>
+    <p>&copy; @DateTime.Now.Year - Onixia Web Game</p>
+</footer>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/Scripts/scripts.js")
+@RenderSection("scripts", required: false)
 </body>
 </html>
