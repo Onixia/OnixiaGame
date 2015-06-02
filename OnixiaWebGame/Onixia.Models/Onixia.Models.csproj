@@ -47,9 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ObjectTemplates\Building.cs" />
-    <Compile Include="ObjectTemplates\Mission.cs" />
+    <Compile Include="ObjectTemplates\Quest.cs" />
     <Compile Include="ObjectTemplates\Ship.cs" />
-    <Compile Include="PlayerAssets\PlayerMission.cs" />
+    <Compile Include="PlayerAssets\PlayerQuest.cs" />
     <Compile Include="PlayerAssets\ResourceBank.cs" />
     <Compile Include="Requirements\BuildingRequirement.cs" />
     <Compile Include="Requirements\Requirement.cs" />

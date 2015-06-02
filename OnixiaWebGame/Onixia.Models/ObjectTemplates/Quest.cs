@@ -4,23 +4,23 @@
     using System.ComponentModel.DataAnnotations;
     using Onixia.Models.PlayerAssets;
     /*
-     * Mission table contains the templates
+     * Quest table contains the templates
      * for every mission doable by players.
      */
 
-    public class Mission
+    public class Quest
     {
         [Required]
-        public int Id { get; set; }
+        public int Id                              { get; set; }
 
         [Required]
-        public TimeSpan MissionLength { get; set; }
+        public TimeSpan MissionLength              { get; set; }
 
         public virtual ResourceBank ResourceReward { get; set; }
 
-        public MissionType Type { get; set; }
+        public MissionType Type                    { get; set; }
 
-        public int Difficulty { get; set; }
+        public int Difficulty                      { get; set; }
     }
         /*
      * Enum contains every type of mission.

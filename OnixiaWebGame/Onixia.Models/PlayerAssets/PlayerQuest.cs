@@ -4,12 +4,14 @@
     using System.ComponentModel.DataAnnotations;
     using Onixia.Models.ObjectTemplates;
 
-    public class PlayerMission
+    public class PlayerQuest
     {
-        [Required]
+        [Key]
+        public int Id              { get; set; }
+
         public DateTime StartTime  { get; set; }
         
-        public Mission Mission     { get; set; }
+        public Quest Quest         { get; set; }
         
         public virtual User Player { get; set; }
     }

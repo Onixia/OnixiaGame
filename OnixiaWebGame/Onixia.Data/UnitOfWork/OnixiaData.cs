@@ -59,6 +59,10 @@
             get { return this.GetRepository<ShipRequirement>(); }
         }
 
+        public IRepository<Quest> Quests
+        {
+            get { return this.GetRepository<Quest>(); }
+        }
         IRepository<User> IOnixiaData.Users
         {
             get { return this.GetRepository<User>(); }

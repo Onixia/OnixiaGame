@@ -53,6 +53,8 @@ namespace Onixia.Models
         [Column(TypeName = "datetime2")]
         public DateTime? LastUpdatedOn { get; set; }
 
+        public bool IsBuilding { get; set; }
+
         public bool IsMainPlanet { get; set; }
     }
 }
