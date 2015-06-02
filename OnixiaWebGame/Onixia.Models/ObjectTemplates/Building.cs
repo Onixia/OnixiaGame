@@ -32,11 +32,11 @@
         public int CurrentLevel   { get; set; }
 
         [Required]
-        public ICollection<BuildingRequirement> BuildingRequirements { get; set; }
+        public virtual ICollection<BuildingRequirement> BuildingRequirements { get; set; }
 
         [Required]  
-        public ICollection<ShipRequirement> ShipRequirements         { get; set; }
+        public virtual ICollection<ShipRequirement> ShipRequirements { get; set; }
 
-        public Building NextLevelBuilding                            { get; set; }
+        public virtual Building NextLevelBuilding { get; set; }
     }
 }

@@ -1,9 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Onixia.Models;
-
-namespace Onixia.Tests
+﻿namespace Onixia.Tests
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Models.PlayerAssets;
+
     [TestClass]
     public class ModelMethodTests
     {
@@ -28,7 +28,7 @@ namespace Onixia.Tests
             ResourceBank rbThree = rbTwo - rbOne;
             ResourceBank nullResource = new ResourceBank();
             Assert.IsTrue(rbThree.Metal == nullResource.Metal);
-            Assert.IsTrue( (rbTwo - rbTwo).Metal == 0); 
+            Assert.IsTrue((rbTwo - rbTwo).Metal == 0);
         }
 
         [TestMethod]

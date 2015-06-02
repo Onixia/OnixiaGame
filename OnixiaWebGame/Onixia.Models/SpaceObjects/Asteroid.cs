@@ -9,6 +9,7 @@
     public class Asteroid : SpaceObject
     {
         public int Id { get; set; }
+
         public ResourceBank Resources { get; set; }
     }
 }

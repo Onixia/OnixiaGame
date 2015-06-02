@@ -50,6 +50,7 @@ namespace Onixia.Models
             set { this.ships = value; }
         }
 
+        [Column(TypeName = "datetime2")]
         public DateTime? LastUpdatedOn { get; set; }
 
         public bool IsMainPlanet { get; set; }

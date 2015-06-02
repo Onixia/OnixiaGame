@@ -3,7 +3,9 @@
     using Onixia.Models.ObjectTemplates;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+
     using Models;
+    using Models.ObjectTemplates;
 
     public interface IOnixiaDbContext
     {

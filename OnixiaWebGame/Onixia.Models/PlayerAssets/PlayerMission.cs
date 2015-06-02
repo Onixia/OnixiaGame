@@ -3,7 +3,8 @@
     using System;
     using System.ComponentModel.DataAnnotations;
     using Onixia.Models.ObjectTemplates;
-    class PlayerMission
+
+    public class PlayerMission
     {
         [Required]
         public DateTime StartTime  { get; set; }

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using Onixia.Models.ObjectTemplates;
 
     /// <summary>
@@ -20,10 +21,11 @@
         [Key]
         public int Id { get; set; }
 
+        [Column(TypeName = "datetime2")]
         public DateTime OrderMade { get; set; }
 
         public Dictionary<Ship, int> ShipsCount { get; set; }
 
-        public Planet TargetPlanet { get; set; }
+        public virtual Planet TargetPlanet { get; set; }
     }
 }

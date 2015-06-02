@@ -1,0 +1,59 @@
+﻿<div id="leftNav">
+    <div class="nav">
+        <span class="main"></span>
+        <label>{translate Navigation}</label>
+        <div class="lines">
+            <ul>
+                <li>@Html.ActionLink("Main", "Index", "Home")</li>
+                <li>@Html.ActionLink("Buiildings", "Index", "Buildings")</li>
+                <li>@Html.ActionLink("Researches", "Index", "Buildings")</li>
+                <li>@Html.ActionLink("Robots", "Index", "Buildings")</li>
+                <li>@Html.ActionLink("Ships", "Index", "Ships")</li>
+                <li>@Html.ActionLink("Factory", "Index", "Buildings")</li>
+                <li>@Html.ActionLink("Fleet", "Index", "Buildings")</li>
+                <li>@Html.ActionLink("Alliance", "Index", "Buildings")</li>
+                <li>@Html.ActionLink("Galaxy", "Index", "Buildings")</li>
+                <li>@Html.ActionLink("Defence", "Index", "Buildings")</li>
+                <li>@Html.ActionLink("Market", "Index", "Buildings")</li>
+                <li>@Html.ActionLink("Bank", "Index", "Buildings")</li>
+            </ul>
+        </div>
+        <div class="bottom"></div>
+    </div>
+    <div class="nav">
+        <span class="planets"></span>
+        <label>{translate Planets}</label>
+        <div class="lines">
+            <ul>
+                @*TODO: This Page should accept PlanetModel*@
+                @Html.DisplayForModel()
+            </ul>
+        </div>
+        <div class="bottom"></div>
+    </div>
+    <div class="nav">
+        <span class="information"></span>
+        <label>{translate Information}</label>
+        <div class="lines">
+            <ul>
+                <li>@Html.ActionLink("Ranking", "Index", "Buildings")</li>
+                <li>@Html.ActionLink("Technics", "Index", "Buildings")</li>
+                <li>@Html.ActionLink("Help", "Index", "Buildings")</li>
+                <li>@Html.ActionLink("Search", "Index", "Buildings")</li>
+            </ul>
+        </div>
+        <div class="bottom"></div>
+    </div>
+    <div class="nav">
+        <span class="personal"></span>
+        <label>{translate 'Personal menu'}</label>
+        <div class="lines">
+            <ul>
+                <li>@Html.ActionLink("Profile", "Index", "Buildings")</li>
+                <li>@Html.ActionLink("Messages", "Index", "Buildings")</li>
+                <li>@Html.ActionLink("Sent messages", "Index", "Buildings")</li>
+            </ul>
+        </div>
+        <div class="bottom"></div>
+    </div>
+</div>

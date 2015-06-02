@@ -1,6 +1,7 @@
 ﻿namespace Onixia.Models.Requirements
 {
     using System.ComponentModel.DataAnnotations;
+
     public class Requirement
     {
         [Key]

@@ -21,7 +21,8 @@
 
         public float Damage { get; set; }
 
-        public virtual ResourceBank ShipCost { get; set; }
+        [Required]
+        public ResourceBank ShipCost { get; set; }
 
         public float Speed { get; set; }
 
