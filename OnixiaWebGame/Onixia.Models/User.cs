@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using Onixia.Models.ObjectTemplates;
 
 namespace Onixia.Models
 {
@@ -42,6 +43,8 @@ namespace Onixia.Models
         public bool IsResearching            { get; set; }
 
         public virtual ICollection<Planet> Planets   { get; set; }
+
+        public virtual ICollection<Technology> Technologies { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

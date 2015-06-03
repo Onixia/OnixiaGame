@@ -17,7 +17,7 @@ namespace Onixia.Models.ObjectTemplates
     {
         public Building()
         {
-            this.BuildingRequirements = new HashSet<BuildingRequirement>();
+            this.BuildingRequirements = new List<BuildingRequirement>();
         }
         public int Id             { get; set; }
 
@@ -32,23 +32,15 @@ namespace Onixia.Models.ObjectTemplates
         [Range(1, 5)]
         public int MaxLevel       { get; set; }
 
-        public ResourceBank ResourceRequirements { get; set; }
-
-        public ResourceBank Income { get; set; }
+        [Required]
+        public virtual ResourceBank ResourceRequirements { get; set; }
+                
+        [ForeignKey("ResourceRequirements")]
+        public int ResourceRequirementsId { get; set; }
 
         public TimeSpan BuildTime { get; set; }
 
         [Required]
         public virtual ICollection<BuildingRequirement> BuildingRequirements { get; set; }
-
-        public BuildingType BuildingType { get; set; }
-    }
-
-    public enum BuildingType
-    {
-        Metal,
-        Crystal,
-        Gas,
-        SolarPanels
     }
 }
