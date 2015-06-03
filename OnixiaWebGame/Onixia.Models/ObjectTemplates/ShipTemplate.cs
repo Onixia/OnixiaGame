@@ -9,9 +9,9 @@ namespace Onixia.Models.ObjectTemplates
     /*
      * Ship class containing base template statistics for every ship buildable by the players.
      */
-    public class Ship
+    public class ShipTemplate
     {
-        public Ship()
+        public ShipTemplate()
         {
             this.BuildingRequirements = new HashSet<BuildingRequirement>();
             this.TechnologyRequirements = new HashSet<TechnologyRequirement>();

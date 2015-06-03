@@ -14,9 +14,9 @@
      * available for the players to build
      */
 
-    public class Building
+    public class BuildingTemplate
     {
-        public Building()
+        public BuildingTemplate()
         {
             this.BuildingRequirements = new HashSet<BuildingRequirement>();
             this.Income = 0;

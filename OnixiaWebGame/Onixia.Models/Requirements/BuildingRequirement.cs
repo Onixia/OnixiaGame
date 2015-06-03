@@ -13,7 +13,7 @@
         public int RequiredBuildingId { get; set; }
 
         [Required]
-        public virtual Building RequiredBuilding { get; set; }
+        public virtual BuildingTemplate RequiredBuilding { get; set; }
         
         [Required]
         public int BuildingLevel         { get; set; }

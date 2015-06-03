@@ -24,7 +24,7 @@
                 var time = new TimeSpan();
                 return View();
             }
-            return RedirectToAction("Splash");
+            return RedirectToAction("About");
         }
 
         public ActionResult Splash()

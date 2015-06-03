@@ -34,9 +34,9 @@
             get { return this.GetRepository<Planet>(); }
         }
 
-        public IRepository<Ship> Ships
+        public IRepository<ShipTemplate> ShipsTemplates
         {
-            get { return this.GetRepository<Ship>(); }
+            get { return this.GetRepository<ShipTemplate>(); }
         }
 
         public IRepository<Asteroid> Asteroids
@@ -44,9 +44,9 @@
             get { return this.GetRepository<Asteroid>(); }
         }
 
-        public IRepository<Building> Buildings
+        public IRepository<BuildingTemplate> BuildingsTemplates
         {
-            get { return this.GetRepository<Building>(); }
+            get { return this.GetRepository<BuildingTemplate>(); }
         }
 
         public IRepository<BuildingRequirement> BuildingRequirements
@@ -68,6 +68,7 @@
         {
             get { return this.GetRepository<PlanetBuilding>(); }
         }
+
         IRepository<User> IOnixiaData.Users
         {
             get { return this.GetRepository<User>(); }

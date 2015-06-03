@@ -23,7 +23,7 @@ namespace OnixiaWebApplication.Controllers
         // GET: Ships
         public ActionResult Index()
         {
-            var ships = this.Data.Ships.All();
+            var ships = this.Data.ShipsTemplates.All();
             var userPlanet = this.UserProfile.Planets.FirstOrDefault();
             var userShips = userPlanet.Ships;
             var shipsList = new List<ShipViewModel>();
@@ -38,7 +38,7 @@ namespace OnixiaWebApplication.Controllers
 
                 var wantedShip = userShips.FirstOrDefault(s => s.Ship.Id == ship.Id);
                 var currentBuildList = userPlanet.CurrentOrder;
-                var userBuildings = userPlanet.Buildings;
+                var userBuildings = userPlanet.PlanetBuildings;
                 var userTechnologies = userPlanet.User.Technologies;
 
                 if (wantedShip != null)
@@ -57,7 +57,7 @@ namespace OnixiaWebApplication.Controllers
 
                 foreach (var requirement in ship.BuildingRequirements)
                 {
-                    var currentWantedUserBuilding = userBuildings.FirstOrDefault(ub => ub.Building.Id == requirement.Id);
+                    var currentWantedUserBuilding = userBuildings.FirstOrDefault(ub => ub.BuildingTemplate.Id == requirement.Id);
                     if (currentWantedUserBuilding == null
                         || requirement.BuildingLevel > currentWantedUserBuilding.BuildingLevel
                         || !userPlanet.PlanetResourceses.HasEnoughFor(ship.ShipCost)

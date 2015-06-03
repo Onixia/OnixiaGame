@@ -45,17 +45,17 @@
         {
             if (this.UserProfile != null)
             {
-                var buildings = this.Data.Buildings.All();
+                var buildings = this.Data.BuildingsTemplates.All();
                 var userPlanet = this.UserProfile.Planets.FirstOrDefault();
 
                 var currentTime = DateTime.Now;
 
                 //if (userPlanet.LastUpdatedOn <= currentTime.AddMinutes(-1))
                 //{
-                var metalMineLevel = userPlanet.Buildings.FirstOrDefault(b => b.Building.BuildingType == BuildingType.Metal).BuildingLevel;
-                var crystalMineLevel = userPlanet.Buildings.FirstOrDefault(b => b.Building.BuildingType == BuildingType.Crystal).BuildingLevel;
-                var gasMineLevel = userPlanet.Buildings.FirstOrDefault(b => b.Building.BuildingType == BuildingType.Gas).BuildingLevel;
-                var solarPanelsLevel = userPlanet.Buildings.FirstOrDefault(b => b.Building.BuildingType == BuildingType.SolarPanels).BuildingLevel;
+                var metalMineLevel = userPlanet.PlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.BuildingType == BuildingType.Metal).BuildingLevel;
+                var crystalMineLevel = userPlanet.PlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.BuildingType == BuildingType.Crystal).BuildingLevel;
+                var gasMineLevel = userPlanet.PlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.BuildingType == BuildingType.Gas).BuildingLevel;
+                var solarPanelsLevel = userPlanet.PlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.BuildingType == BuildingType.SolarPanels).BuildingLevel;
 
                 var metalIncome = metalMineLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Metal).Income;
                 var crystalIncome = crystalMineLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Crystal).Income;

@@ -1,7 +1,3 @@
-using Onixia.Data;
-using Onixia.Data.Contracts;
-using Onixia.Data.UnitOfWork;
-
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(OnixiaWebApplication.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(OnixiaWebApplication.App_Start.NinjectWebCommon), "Stop")]
 
@@ -14,6 +10,9 @@ namespace OnixiaWebApplication.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using Onixia.Data;
+    using Onixia.Data.Contracts;
+    using Onixia.Data.UnitOfWork;
 
     public static class NinjectWebCommon 
     {

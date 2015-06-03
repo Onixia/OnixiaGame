@@ -28,13 +28,13 @@
 
         public IDbSet<Asteroid> Asteroids { get; set; }
 
-        public IDbSet<Building> Buildings { get; set; }
+        public IDbSet<BuildingTemplate> Buildings { get; set; }
 
         public IDbSet<Planet> Planets { get; set; }
 
         public IDbSet<Quest> Quests { get; set; }
 
-        public IDbSet<Ship> Ships { get; set; }
+        public IDbSet<ShipTemplate> Ships { get; set; }
 
         public IDbSet<BuildingRequirement> BuildingRequirements { get; set; }
 

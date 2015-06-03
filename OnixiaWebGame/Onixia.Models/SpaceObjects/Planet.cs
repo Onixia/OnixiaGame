@@ -36,7 +36,7 @@
         [Required]
         public int Fields { get; set; }
 
-        public virtual ICollection<PlanetBuilding> Buildings 
+        public virtual ICollection<PlanetBuilding> PlanetBuildings 
         {
             get { return this.buildings; }
             set { this.buildings = value; }

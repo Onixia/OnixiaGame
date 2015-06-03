@@ -34,9 +34,9 @@
 
         private void CreateShips(OnixiaDbContext context)
         {
-            var ships = new List<Ship>
+            var ships = new List<ShipTemplate>
             {
-                new Ship
+                new ShipTemplate
                 {
                     Name = "Scout",
                     ArmorType = ArmorType.Light,
@@ -48,7 +48,7 @@
                     BuildTime = new TimeSpan(0, 0, 5),
                     ShipCost = new ResourceBank(3000, 1000, 0)
                 },
-                new Ship
+                new ShipTemplate
                 {
                     Name = "Fighter",
                     Damage = 900,
@@ -60,7 +60,7 @@
                     ShipCost = new ResourceBank(6000, 4000, 0),
                     BuildTime = new TimeSpan(0, 0, 8)
                 },
-                new Ship
+                new ShipTemplate
                 {
                     Name = "Guardian",
                     Damage = 2500,
@@ -72,7 +72,7 @@
                     ShipCost = new ResourceBank(20000, 7000, 0),
                     BuildTime = new TimeSpan(0, 0, 30)
                 },
-                new Ship
+                new ShipTemplate
                 {
                     Name = "Battleship",
                     Damage = 6000,
@@ -84,7 +84,7 @@
                     ShipCost = new ResourceBank(40000, 20000, 0),
                     BuildTime = new TimeSpan(0, 1, 0)
                 },
-                new Ship
+                new ShipTemplate
                 {
                     Name = "Bomber",
                     Damage = 7000,
@@ -96,7 +96,7 @@
                     ShipCost = new ResourceBank(50000, 25000, 10000),
                     BuildTime = new TimeSpan(0, 1, 30)
                 },
-                new Ship
+                new ShipTemplate
                 {
                     Name = "Destroyer",
                     Damage = 12500,
@@ -108,7 +108,7 @@
                     ShipCost = new ResourceBank(60000, 50000, 15000),
                     BuildTime = new TimeSpan(0, 2, 0)
                 },
-                new Ship
+                new ShipTemplate
                 {
                     Name = "Spy Probe",
                     Damage = 1,
@@ -120,7 +120,7 @@
                     ShipCost = new ResourceBank(1000, 0, 60),
                     BuildTime = new TimeSpan(0, 0, 1)
                 },
-                new Ship
+                new ShipTemplate
                 {
                     Name = "Colonizer",
                     Damage = 400,
@@ -132,7 +132,7 @@
                     ShipCost = new ResourceBank(10000, 20000, 1000),
                     BuildTime = new TimeSpan(0, 1, 30)
                 },
-                new Ship
+                new ShipTemplate
                 {
                     Name = "Raptor",
                     Damage = 500,
@@ -144,7 +144,7 @@
                     ShipCost = new ResourceBank(),
                     BuildTime = new TimeSpan(0, 0, 40)
                 },
-                new Ship
+                new ShipTemplate
                 {
                     Name = "Recycler",
                     Damage = 5,
@@ -156,7 +156,7 @@
                     ShipCost = new ResourceBank(10000, 8000, 2000),
                     BuildTime = new TimeSpan(0, 0, 50)
                 },
-                new Ship
+                new ShipTemplate
                 {
                     Name = "Transporter",
                     Damage = 5,
@@ -168,7 +168,7 @@
                     ShipCost = new ResourceBank(2000, 2000, 0),
                     BuildTime = new TimeSpan(0, 0, 10)
                 },
-                new Ship
+                new ShipTemplate
                 {
                     Name = "Tanker",
                     Damage = 5,
@@ -188,12 +188,12 @@
 
         private void CreateBuildings(OnixiaDbContext context)
         {
-            var buildings = new List<Building>
+            var buildings = new List<BuildingTemplate>
             {
-                new Building {Name = "Metal Mine", Description = "Main source for extraction of metal", MaxLevel = 30, BuildingType = BuildingType.Metal, Income = 500, BuildTime = new TimeSpan(0, 0, 1), ResourceRequirements = new ResourceBank()},
-                new Building {Name = "Crystal Mine", Description = "Main source for extracting crystals", MaxLevel = 30, BuildingType = BuildingType.Crystal, Income = 500, BuildTime = new TimeSpan(0, 0, 1), ResourceRequirements = new ResourceBank()},
-                new Building {Name = "Gas Mine", Description = "Main source for extracting gas", MaxLevel = 30, BuildingType = BuildingType.Gas, Income = 500, BuildTime = new TimeSpan(0, 0, 1), ResourceRequirements = new ResourceBank()},
-                new Building
+                new BuildingTemplate {Name = "Metal Mine", Description = "Main source for extraction of metal", MaxLevel = 30, BuildingType = BuildingType.Metal, Income = 500, BuildTime = new TimeSpan(0, 0, 1), ResourceRequirements = new ResourceBank()},
+                new BuildingTemplate {Name = "Crystal Mine", Description = "Main source for extracting crystals", MaxLevel = 30, BuildingType = BuildingType.Crystal, Income = 500, BuildTime = new TimeSpan(0, 0, 1), ResourceRequirements = new ResourceBank()},
+                new BuildingTemplate {Name = "Gas Mine", Description = "Main source for extracting gas", MaxLevel = 30, BuildingType = BuildingType.Gas, Income = 500, BuildTime = new TimeSpan(0, 0, 1), ResourceRequirements = new ResourceBank()},
+                new BuildingTemplate
                 {
                     Name = "Solar Panel",
                     Description = "Converts solar rays into energy suitable for your needs",
@@ -203,8 +203,8 @@
                     BuildTime = new TimeSpan(0, 0, 1),
                     ResourceRequirements = new ResourceBank()
                 },
-                new Building {Name = "Robot Factory", Description = "Robot Factory", MaxLevel = 14, BuildingType = BuildingType.Other, BuildTime = new TimeSpan(0, 0, 1), ResourceRequirements = new ResourceBank()},
-                new Building
+                new BuildingTemplate {Name = "Robot Factory", Description = "Robot Factory", MaxLevel = 14, BuildingType = BuildingType.Other, BuildTime = new TimeSpan(0, 0, 1), ResourceRequirements = new ResourceBank()},
+                new BuildingTemplate
                 {
                     Name = "Science Facility",
                     Description = "Facility where your scientiests invent and develop new technologies",
@@ -213,7 +213,7 @@
                     BuildTime = new TimeSpan(0, 0, 1),
                     ResourceRequirements = new ResourceBank()
                 },
-                new Building
+                new BuildingTemplate
                 {
                     Name = "Spaceport",
                     Description = "Here you can build new spaceships, shuttles and satellites",
@@ -226,7 +226,7 @@
                     BuildTime = new TimeSpan(0, 0, 1),
                     ResourceRequirements = new ResourceBank()
                 },
-                new Building
+                new BuildingTemplate
                 {
                     Name = "Trade Center",
                     Description = "Inter-planet trade hub for trading with all foreign merchants",
@@ -235,7 +235,7 @@
                     BuildTime = new TimeSpan(0, 0, 1),
                     ResourceRequirements = new ResourceBank()
                 },
-                new Building
+                new BuildingTemplate
                 {
                     Name = "Metal Warehouse",
                     Description = "Provides additional highly secured depot for storing your extracted metal",
@@ -244,7 +244,7 @@
                     BuildTime = new TimeSpan(0, 0, 1),
                     ResourceRequirements = new ResourceBank()
                 },
-                new Building
+                new BuildingTemplate
                 {
                     Name = "Crystal Warehouse",
                     Description = "Provides additional highly secured depot for storing your extracted crystals",
@@ -253,7 +253,7 @@
                     BuildTime = new TimeSpan(0, 0, 1),
                     ResourceRequirements = new ResourceBank()
                 },
-                new Building
+                new BuildingTemplate
                 {
                     Name = "Gas Tank",
                     Description = "Provides additional highly secured depot for storing your extracted gas",

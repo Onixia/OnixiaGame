@@ -1,4 +1,5 @@
-﻿@using Onixia.Models.PlayerAssets
+﻿@using System.Web.Mvc.Expressions
+@using Onixia.Models.PlayerAssets
 @using OnixiaWebApplication.Models;
 @model OnixiaWebApplication.Models.BuildingViewModel
 
@@ -35,9 +36,16 @@
         </div>
         <div class="time" id="time">
             <div class="timer-logo"></div>
+<<<<<<< HEAD
         <label class="@if (Model.IsBuilding){
                    @:Building 
                }"> @String.Format(" {0:00} : {1:00} : {2:00}", Model.TimeLeft.Hours, Model.TimeLeft.Minutes, Model.TimeLeft.Seconds)</label>
+=======
+            <label class="@if (Model.IsBuilding)
+                          {
+                              @:Building 
+                          }"> @String.Format(" {0} : {1} : {2}", Model.TimeLeft.Hours, Model.TimeLeft.Minutes, Model.TimeLeft.Seconds)</label>
+>>>>>>> 628bc42e3ab3a32928837a8f7fd6ced427b5f20e
         </div>
         @if(!Model.IsBuilding && Model.IsBuildable)
         {
@@ -65,6 +73,7 @@
             </div>
         }
     </div>
+    @Html.ActionLink("Start Building", "CreateBuilding", "Buildings", new { name = Model.Name }, null)
 </div>
 
 @* Put in logic *@

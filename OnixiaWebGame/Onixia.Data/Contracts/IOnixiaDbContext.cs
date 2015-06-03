@@ -13,11 +13,11 @@
 
         IDbSet<Asteroid> Asteroids { get; set; }
 
-        IDbSet<Building> Buildings { get; set; }
+        IDbSet<BuildingTemplate> Buildings { get; set; }
 
         IDbSet<Planet> Planets { get; set; }
 
-        IDbSet<Ship> Ships { get; set; } 
+        IDbSet<ShipTemplate> Ships { get; set; } 
 
         int SaveChanges();
 
