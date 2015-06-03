@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using Microsoft.AspNet.Identity;
-using Onixia.Data.Contracts;
-using Onixia.Models;
-using OnixiaWebApplication.Models;
-
-namespace OnixiaWebApplication.Controllers
+﻿namespace OnixiaWebApplication.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using Models;
+
+    using Onixia.Data.Contracts;
+
     public class BuildingsController : BaseController
     {
         public BuildingsController(IOnixiaData data)
@@ -19,20 +17,18 @@ namespace OnixiaWebApplication.Controllers
         }
 
 
-
         // GET: Buildings
         public ActionResult Index()
         {
-            
-            var buildings     = this.Data.Buildings.All();
-            var userPlanet    = this.UserProfile.Planets.FirstOrDefault();
+            var buildings = this.Data.Buildings.All();
+            var userPlanet = this.UserProfile.Planets.FirstOrDefault();
             var userBuildings = userPlanet.Buildings;
             var buildingsList = new List<BuildingViewModel>();
 
             foreach (var building in buildings)
             {
-                bool isValid       = true;
-                bool isBuilding    = false;
+                bool isValid = true;
+                bool isBuilding = false;
                 var wantedBuilding = userBuildings.FirstOrDefault(ub => ub.Id == building.Id);
                 TimeSpan elapsedTime = new TimeSpan();
                 if (wantedBuilding != null)
@@ -54,7 +50,6 @@ namespace OnixiaWebApplication.Controllers
                     {
                         isValid = false;
                     }
-                    
                 }
 
                 int currentLevel = 0;
@@ -66,7 +61,7 @@ namespace OnixiaWebApplication.Controllers
                     currentLevel = (buildingLevel == null ? 0 : buildingLevel);
                 }
 
-                BuildingViewModel newBuilding = new BuildingViewModel()
+                BuildingViewModel newBuilding = new BuildingViewModel
                 {
                     Name = building.Name,
                     Description = building.Description,
@@ -76,7 +71,6 @@ namespace OnixiaWebApplication.Controllers
                     IsBuilding = isBuilding,
                     TimeLeft = building.BuildTime - elapsedTime,
                     ResourceRequirements = building.ResourceRequirements
-
                 };
 
 
@@ -84,9 +78,5 @@ namespace OnixiaWebApplication.Controllers
             }
             return View(new CombinedBuildingsViewModel(buildingsList));
         }
-
-        
-
-        
     }
 }

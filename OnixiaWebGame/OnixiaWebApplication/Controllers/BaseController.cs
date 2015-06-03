@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using Microsoft.AspNet.Identity;
-using Onixia.Data.Contracts;
-using Onixia.Data.UnitOfWork;
-using Onixia.Models;
-
-namespace OnixiaWebApplication.Controllers
+﻿namespace OnixiaWebApplication.Controllers
 {
+    using System;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+
+    using Microsoft.AspNet.Identity;
+
+    using Onixia.Data.Contracts;
+    using Onixia.Models;
+
     public abstract class BaseController : Controller
     {
-        protected BaseController(IOnixiaData data, User userProfile) 
-            :this(data)
+        protected BaseController(IOnixiaData data, User userProfile)
+            : this(data)
         {
             this.UserProfile = userProfile;
-
         }
 
         protected BaseController(IOnixiaData data)
@@ -37,9 +34,8 @@ namespace OnixiaWebApplication.Controllers
             }
 
             return base.BeginExecute(requestContext, callback, state);
-        } 
+        }
 
-        public IOnixiaData Data { get; set; }
-
+        protected IOnixiaData Data { get; set; }
     }
 }

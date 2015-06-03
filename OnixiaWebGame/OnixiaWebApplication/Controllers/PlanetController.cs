@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Onixia.Data.Contracts;
-using Onixia.Models;
-using Onixia.Models.PlayerAssets;
-using OnixiaWebApplication.Models;
-
-namespace OnixiaWebApplication.Controllers
+﻿namespace OnixiaWebApplication.Controllers
 {
+    using System;
+    using System.Web.Mvc;
+
+    using Models;
+    using Onixia.Data.Contracts;
+    using Onixia.Models;
+    using Onixia.Models.PlayerAssets;
+
     public class PlanetController : BaseController
     {
         public PlanetController(IOnixiaData data)
             : base(data)
         {
         }
+
         // GET: Planet
         public ActionResult Create()
         {
@@ -24,6 +22,7 @@ namespace OnixiaWebApplication.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(PlanetPostModel postModel)
         {
             if (!ModelState.IsValid)
@@ -49,7 +48,5 @@ namespace OnixiaWebApplication.Controllers
             planet.LastUpdatedOn = DateTime.Now;
             return planet;
         }
-
-       
     }
 }

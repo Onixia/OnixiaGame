@@ -1,7 +1,11 @@
 ﻿@{
-    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<div id='splashBackground'>
+    <p>Welcome, stranger! You've are about to enter into an incredible new world and meet plenty of other players from all over the world. Hurry on, and join the action by registering a new account or logging on!</p>
+    @Html.ActionLink("Register or Login", "Splash", "Home")
+</div>
+
