@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Onixia.Models.ObjectTemplates;
 using Onixia.Models.PlayerAssets;
 
 namespace OnixiaWebApplication.Models
@@ -12,7 +13,9 @@ namespace OnixiaWebApplication.Models
 
         public string Description { get; set; }
 
-        public float Armor { get; set; }
+        public ArmorType Armor { get; set; }
+
+        public WeaponType WeaponType { get; set; }
 
         public float Shield { get; set; }
 
@@ -22,11 +25,13 @@ namespace OnixiaWebApplication.Models
 
         public float Speed { get; set; }
 
-        public float Range { get; set; }
+        public int GasConsumption { get; set; }
 
         public TimeSpan BuildTime { get; set; }
 
         public bool IsBuilt { get; set; }
+
+        public bool IsBuilding { get; set; }
 
         public int Amount { get; set; }
     }

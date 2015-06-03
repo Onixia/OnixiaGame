@@ -18,7 +18,7 @@
         public string Description { get; set; }
 
         [Required]
-        public float Armor { get; set; }
+        public ArmorType Armor { get; set; }
 
         [Required]
         public float Shield { get; set; }
@@ -28,13 +28,11 @@
         [Required]
         public ResourceBank ShipCost { get; set; }
 
+        public int GasConsumption { get; set; }
+
         public float Speed { get; set; }
 
-        public float Range { get; set; }
-
         public TimeSpan BuildTime { get; set; }
-
-        public int Cargo { get; set; }
     }
 
         /*
@@ -47,5 +45,12 @@
         Laser,
         Rocket,
         Fragmentation
+    }
+
+    public enum ArmorType
+    {
+        Light,
+        Medium,
+        Heavy
     }
 }
