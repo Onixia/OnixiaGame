@@ -37,7 +37,7 @@
             <div class="timer-logo"></div>
         <label class="@if (Model.IsBuilding){
                    @:Building 
-               }"> @String.Format(" {0} : {1} : {2}", Model.TimeLeft.Hours, Model.TimeLeft.Minutes, Model.TimeLeft.Seconds)</label>
+               }"> @String.Format(" {0:00} : {1:00} : {2:00}", Model.TimeLeft.Hours, Model.TimeLeft.Minutes, Model.TimeLeft.Seconds)</label>
         </div>
         @if(!Model.IsBuilding && Model.IsBuildable)
         {
