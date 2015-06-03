@@ -39,18 +39,33 @@
                    @:Building 
                }"> @String.Format(" {0} : {1} : {2}", Model.TimeLeft.Hours, Model.TimeLeft.Minutes, Model.TimeLeft.Seconds)</label>
         </div>
+        @if(!Model.IsBuilding && Model.IsBuildable)
+        {
         <a href="">
             <div class="build">
                 <div class="build-logo"></div>
                 Build Level : @Model.CurrentLevel + 1
             </div>
         </a>
+        }
+        else if (Model.IsBuilding)
+        {
         <a href="">
             <div class="build">
                 <div class="build-logo"></div>
                 <label class="">Cancel Building</label>
             </div>
         </a>
+        }
+        else
+        {
+            <a href="#">
+                <div class="build">
+                    <div class="build-logo"></div>
+                    <label class="">Need Requirements</label>
+                </div>
+            </a>
+        }
     </div>
 </div>
 
