@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Onixia.Models.ObjectTemplates;
-
-namespace Onixia.Models.Requirements
+﻿namespace Onixia.Models.Requirements
 {
-    class TechnologyRequirement
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    using ObjectTemplates;
+
+    internal class TechnologyRequirement
     {
         [Key]
         public int Id { get; set; }
-        public Technology Technology { get; set; }
+
+        [ForeignKey("Technology")]
+        public int TechnologyId { get; set; }
+
+        public virtual Technology Technology { get; set; }
     }
 }

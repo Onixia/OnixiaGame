@@ -19,6 +19,7 @@ namespace Onixia.Models.ObjectTemplates
         {
             this.BuildingRequirements = new HashSet<BuildingRequirement>();
         }
+
         public int Id             { get; set; }
 
         [Required]
@@ -29,7 +30,7 @@ namespace Onixia.Models.ObjectTemplates
         public string Description { get; set; }
 
         [Required]
-        [Range(1, 5)]
+        [Range(1, 30)]
         public int MaxLevel       { get; set; }
 
         public ResourceBank ResourceRequirements { get; set; } 
