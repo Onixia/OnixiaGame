@@ -1,0 +1,104 @@
+﻿@using Microsoft.AspNet.Identity
+
+<div id="res-title" style="display: none; position: fixed;">
+    @if (User.Identity.GetUserId() != null)
+    {
+        <div id="res">
+
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+            {
+            @Html.AntiForgeryToken()
+            <div class="user">
+                <a href="javascript:document.getElementById('logoutForm').submit()" class="logout"></a>
+                @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new {title = "Manage"})
+            </div>
+
+
+            <label id="serverTime" class="servertime"></label>
+            <div class="energy logo">
+                <label>0</label>
+            </div>
+            <div class="gas logo">
+                <label>0</label>
+            </div>
+            <div class="crystal logo">
+                <label>0</label>
+            </div>
+            <div class="metal logo">
+                <label>0</label>
+            </div>
+            }
+        </div>
+    }
+</div>
+<div id="header">
+    @if (User.Identity.GetUserId() != null)
+    {
+        <div class="title">
+            <div class="user">
+
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "logoutForm", @class = "navbar-right"}))
+                {
+                @Html.AntiForgeryToken()
+                <div class="user">
+                    <a href="javascript:document.getElementById('logoutForm').submit()" class="logout"></a>
+                    @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new {title = "Manage"})
+                </div>
+
+                }
+
+            </div>
+            <label id="servertime" class="servertime"></label>
+            <a href="settings.php">
+                <div class="button">
+                    <label class="link">Settings</label>
+                </div>
+            </a>
+            <a href="messages.php">
+                <div class="button">
+                    <label class="link">Messages</label>
+                </div>
+            </a>
+            <div class="onixia"></div>
+
+        </div>
+
+        <div class="content">
+            <div class="res">
+                <div class="res-box">
+                    <div class="metal logo" title="Metal"></div>
+                    <label>0</label>
+                </div>
+                <div class="res-box">
+                    <div class="crystal logo" title="Crystal"></div>
+                    <label>0</label>
+                </div>
+                <div class="res-box">
+                    <div class="gas logo" title="Gas"></div>
+                    <label>0</label>
+                </div>
+                <div class="res-box last">
+                    <div class="energy logo" title="Energy"></div>
+                    <label>0</label>
+                </div>
+            </div>
+            <div class="menu">
+                <a href="statistic.php">
+                    <div class="tab">
+                        <label class="link">Statistic</label>
+                    </div>
+                </a>
+                <a href="recycles.php">
+                    <div class="tab">
+                        <label class="link">Recycles</label>
+                    </div>
+                </a>
+                <a href="universe.php">
+                    <div class="tab">
+                        <label class="link">Galaxy</label>
+                    </div>
+                </a>
+            </div>
+        </div>
+    }
+</div>
