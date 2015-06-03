@@ -50,6 +50,7 @@
     <Compile Include="ObjectTemplates\Quest.cs" />
     <Compile Include="ObjectTemplates\Ship.cs" />
     <Compile Include="PlayerAssets\PlanetBuilding.cs" />
+    <Compile Include="PlayerAssets\PlanetShip.cs" />
     <Compile Include="PlayerAssets\PlayerQuest.cs" />
     <Compile Include="PlayerAssets\ResourceBank.cs" />
     <Compile Include="Requirements\BuildingRequirement.cs" />

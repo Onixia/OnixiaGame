@@ -1,10 +1,12 @@
 ﻿namespace Onixia.Data.Migrations
 {
+    using System;
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
     using Models.ObjectTemplates;
+    using Models.PlayerAssets;
     using Models.Requirements;
 
     public class OnixiaDbMigrationConfig : DbMigrationsConfiguration<OnixiaDbContext>
@@ -32,24 +34,155 @@
         {
             var ships = new List<Ship>
             {
-                new Ship { Name = "Scout", ArmorType = ArmorType.Light, }
-            }
-        }
+                new Ship
+                {
+                    Name = "Scout",
+                    ArmorType = ArmorType.Light,
+                    WeaponType = WeaponType.Laser,
+                    Speed = 0,
+                    Shield = 4000,
+                    GasConsumption = 100,
+                    Damage = 350,
+                    BuildTime = new TimeSpan(0, 0, 5),
+                    ShipCost = new ResourceBank(3000, 1000, 0)
+                },
+                new Ship
+                {
+                    Name = "Fighter",
+                    Damage = 900,
+                    Shield = 10000,
+                    WeaponType = WeaponType.Plasma,
+                    ArmorType = ArmorType.Light,
+                    Speed = 0,
+                    GasConsumption = 200,
+                    ShipCost = new ResourceBank(6000, 4000, 0),
+                    BuildTime = new TimeSpan(0, 0, 8)
+                },
+                new Ship
+                {
+                    Name = "Guardian",
+                    Damage = 2500,
+                    Shield = 27000,
+                    WeaponType = WeaponType.Ion,
+                    ArmorType = ArmorType.Medium,
+                    Speed = 0,
+                    GasConsumption = 300,
+                    ShipCost = new ResourceBank(20000, 7000, 0),
+                    BuildTime = new TimeSpan(0, 0, 30)
+                },
+                new Ship
+                {
+                    Name = "Battleship",
+                    Damage = 6000,
+                    Shield = 60000,
+                    WeaponType = WeaponType.Plasma,
+                    ArmorType = ArmorType.Medium,
+                    Speed = 0,
+                    GasConsumption = 800,
+                    ShipCost = new ResourceBank(40000, 20000, 0),
+                    BuildTime = new TimeSpan(0, 1, 0)
+                },
+                new Ship
+                {
+                    Name = "Bomber",
+                    Damage = 7000,
+                    Shield = 85000,
+                    WeaponType = WeaponType.Laser,
+                    ArmorType = ArmorType.Heavy,
+                    Speed = 0,
+                    GasConsumption = 700,
+                    ShipCost = new ResourceBank(50000, 25000, 10000),
+                    BuildTime = new TimeSpan(0, 1, 30)
+                },
+                new Ship
+                {
+                    Name = "Destroyer",
+                    Damage = 12500,
+                    Shield = 125000,
+                    WeaponType = WeaponType.Plasma,
+                    ArmorType = ArmorType.Heavy,
+                    Speed = 0,
+                    GasConsumption = 1000,
+                    ShipCost = new ResourceBank(60000, 50000, 15000),
+                    BuildTime = new TimeSpan(0, 2, 0)
+                },
+                new Ship
+                {
+                    Name = "Spy Probe",
+                    Damage = 1,
+                    Shield = 1000,
+                    WeaponType = WeaponType.Laser,
+                    ArmorType = ArmorType.Light,
+                    Speed = 0,
+                    GasConsumption = 1,
+                    ShipCost = new ResourceBank(1000, 0, 60),
+                    BuildTime = new TimeSpan(0, 0, 1)
+                },
+                new Ship
+                {
+                    Name = "Colonizer",
+                    Damage = 400,
+                    Shield = 30000,
+                    WeaponType = WeaponType.Laser,
+                    ArmorType = ArmorType.Heavy,
+                    Speed = 0,
+                    GasConsumption = 1000,
+                    ShipCost = new ResourceBank(10000, 20000, 1000),
+                    BuildTime = new TimeSpan(0, 1, 30)
+                },
+                new Ship
+                {
+                    Name = "Raptor",
+                    Damage = 500,
+                    Shield = 0,
+                    WeaponType = WeaponType.Ion,
+                    ArmorType = ArmorType.Medium,
+                    Speed = 0,
+                    GasConsumption = 0,
+                    ShipCost = new ResourceBank(),
+                    BuildTime = new TimeSpan(0, 0, 40)
+                },
+                new Ship
+                {
+                    Name = "Recycler",
+                    Damage = 5,
+                    Shield = 20000,
+                    WeaponType = WeaponType.Laser,
+                    ArmorType = ArmorType.Medium,
+                    Speed = 0,
+                    GasConsumption = 100,
+                    ShipCost = new ResourceBank(10000, 8000, 2000),
+                    BuildTime = new TimeSpan(0, 0, 50)
+                },
+                new Ship
+                {
+                    Name = "Transporter",
+                    Damage = 5,
+                    Shield = 4000,
+                    WeaponType = WeaponType.Laser,
+                    ArmorType = ArmorType.Light,
+                    Speed = 0,
+                    GasConsumption = 50,
+                    ShipCost = new ResourceBank(2000, 2000, 0),
+                    BuildTime = new TimeSpan(0, 0, 10)
+                },
+                new Ship
+                {
+                    Name = "Tanker",
+                    Damage = 5,
+                    Shield = 12000,
+                    WeaponType = WeaponType.Laser,
+                    ArmorType = ArmorType.Heavy,
+                    Speed = 0,
+                    GasConsumption = 200,
+                    ShipCost = new ResourceBank(6000, 6000, 0),
+                    BuildTime = new TimeSpan(0, 0, 30)
+                }
+            };
 
-//        INSERT INTO `ships` (`id`, `name`, `strength`, `structure`, `weapon`, `armor`, `speed`, `consumation`, `engine`, `cargo`, `metal`, `crystal`, `gas`, `time_need`, `class`, `b_requirements`, `s_requirements`) VALUES
-//(1, 'scout', 350, 4000, 'laser', 'light', 0, 100, '', 50, 3000, 1000, 0, 300, 1, '', ''),
-//(2, 'fighter', 900, 10000, 'plasma', 'light', 0, 200, '', 300, 6000, 4000, 0, 480, 1, '', ''),
-//(3, 'guardian', 2500, 27000, 'ion', 'medium', 0, 300, '', 800, 20000, 7000, 0, 1800, 1, '', ''),
-//(4, 'battleship', 6000, 60000, 'plasma', 'medium', 0, 800, '', 1500, 40000, 20000, 0, 3600, 1, '', ''),
-//(5, 'bomber', 7000, 85000, 'laser', 'heavy', 0, 700, '', 500, 50000, 25000, 10000, 5400, 1, '', ''),
-//(6, 'destroyer', 12500, 125000, 'plasma', 'heavy', 0, 1000, '', 2000, 60000, 50000, 15000, 7200, 1, '', ''),
-//(7, 'spy_probe', 1, 1000, 'laser', 'light', 0, 1, '', 1, 0, 1000, 0, 60, 2, '', ''),
-//(8, 'colonizer', 400, 30000, 'laser', 'heavy', 0, 1000, '', 7500, 10000, 20000, 1000, 5400, 2, '', ''),
-//(9, 'raptor', 500, 0, 'ion', 'medium', 0, 0, '', 0, 0, 0, 0, 2400, 2, '', ''),
-//(10, 'recycler', 5, 20000, 'laser', 'medium', 0, 100, '', 20000, 10000, 8000, 2000, 3000, 2, '', ''),
-//(11, 'transporter', 5, 4000, 'laser', 'light', 0, 50, '', 5000, 2000, 2000, 0, 600, 2, '', ''),
-//(12, 'tanker', 5, 12000, 'laser', 'heavy', 0, 200, '', 15000, 6000, 6000, 0, 1800, 2, '', ''),
-//(13, 'solar_station', 0, 3000, '', 'light', 0, 0, '', 0, 1000, 2000, 1000, 600, 2, '', '');
+            ships.ForEach(s => context.Ships.Add(s));
+            context.SaveChanges();
+        }
 
         private void CreateBuildings(OnixiaDbContext context)
         {

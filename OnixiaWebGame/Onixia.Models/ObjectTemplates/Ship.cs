@@ -11,10 +11,17 @@
         [Key]
         public int Id { get; set; }
 
+        [Required]
+        [StringLength(50, ErrorMessage = "The {0} must be between {1} and {2} characteres long!", MinimumLength = 3)]
+        public string Name { get; set; }
+
+        [StringLength(50, ErrorMessage = "The {0} must be between {1} and {2} characteres long!", MinimumLength = 3)]
+        public string Description { get; set; }
+
         public WeaponType WeaponType { get; set; }
 
         [Required]
-        public float Armor { get; set; }
+        public ArmorType ArmorType { get; set; }
 
         [Required]
         public float Shield { get; set; }
@@ -24,24 +31,29 @@
         [Required]
         public ResourceBank ShipCost { get; set; }
 
+        public int GasConsumption { get; set; }
+
         public float Speed { get; set; }
 
-        public float Range { get; set; }
-
         public TimeSpan BuildTime { get; set; }
-
-        public int Cargo { get; set; }
     }
 
         /*
          * Enumeration containing different weapon types. 
          * Can be used for creating more dynamic loginc behind space battles.
          */
-        ;
+
     public enum WeaponType
     {
         Laser,
-        Rocket,
-        Fragmentation
+        Ion,
+        Plasma
+    }
+
+    public enum ArmorType
+    {
+        Light,
+        Medium,
+        Heavy
     }
 }
