@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
+    using Models.PlayerAssets;
 
     public interface IRepository<T>
     {
@@ -27,5 +28,7 @@
 
         //SaveChanges
         int SaveChanges();
+
+        ResourceBank GetResources(T entity, string userId);
     }
 }

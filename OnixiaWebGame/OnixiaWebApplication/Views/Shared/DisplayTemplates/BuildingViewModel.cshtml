@@ -39,35 +39,32 @@
             <label class="@if (Model.IsBuilding)
                           {
                               @:Building 
-                          }"> @String.Format(" {0} : {1} : {2}", Model.TimeLeft.Hours, Model.TimeLeft.Minutes, Model.TimeLeft.Seconds)</label>
+                          }"> @String.Format(" {0:00} : {1:00} : {2:00}", Model.TimeLeft.Hours, Model.TimeLeft.Minutes, Model.TimeLeft.Seconds)</label>
         </div>
         @if(!Model.IsBuilding && Model.IsBuildable)
         {
-        <a href="">
             <div class="build">
                 <div class="build-logo"></div>
-                Build Level @(Model.CurrentLevel + 1)
+                @Html.ActionLink("Build Level " + (Model.CurrentLevel + 1), "CreateBuilding", "Buildings", new { name = Model.Name }, null)
+                
             </div>
-        </a>
         }
         else if (Model.IsBuilding)
         {
-        <a href="">
             <div class="build">
                 <div class="build-logo"></div>
-                <label class="">Cancel Building</label>
+                @Html.ActionLink("Cancel building", "CancelBuilding", "Buildings", new { name = Model.Name }, null)
             </div>
-        </a>
         }
         else
         {
             <div class="build">
                 <div class="build-logo"></div>
-                <label class="err">Need Requirements</label>
+                <label class="err">@Model.ErrorMessage</label>
             </div>
         }
     </div>
-    @Html.ActionLink("Start Building", "CreateBuilding", "Buildings", new { name = Model.Name }, null)
+    
 </div>
 
 @* Put in logic *@

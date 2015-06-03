@@ -30,8 +30,7 @@ namespace Onixia.Models.PlayerAssets
         public int BuildingTemplateId { get; set; }
 
         [Column(TypeName = "datetime2")]
-        [Required]
-        public DateTime StartedOn { get; set; }
+        public DateTime? StartedOn { get; set; }
 
         [Required]
         [ForeignKey("Planet")]
@@ -39,5 +38,19 @@ namespace Onixia.Models.PlayerAssets
 
         public virtual Planet Planet { get; set; }
         
+        public ResourceBank CalculateCost()
+        {
+            ResourceBank neededResourses = new ResourceBank();
+            neededResourses.Crystal = this.BuildingTemplate.ResourceRequirements.Crystal * (this.BuildingLevel + 1);
+            neededResourses.Metal = this.BuildingTemplate.ResourceRequirements.Metal * (this.BuildingLevel + 1);
+            neededResourses.Gas = this.BuildingTemplate.ResourceRequirements.Gas * (this.BuildingLevel + 1);
+            neededResourses.Energy = this.BuildingTemplate.ResourceRequirements.Energy * (this.BuildingLevel + 1);
+            return neededResourses;
+        }
+
+        public int CalculateIncome()
+        {
+            return this.BuildingTemplate.Income * (this.BuildingLevel + 1);
+        }
     }
 }

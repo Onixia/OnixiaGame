@@ -41,7 +41,7 @@
         {
             var planet = new Planet();
             planet.UserId = this.UserProfile.Id;
-            planet.PlanetResourceses = new ResourceBank(500, 500, 50, 10);
+            planet.PlanetResourceses = new ResourceBank(500, 500, 100, 25);
             planet.Name = name;
             planet.IsBuilding = false;
             planet.IsMainPlanet = true;

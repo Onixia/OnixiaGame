@@ -6,7 +6,6 @@
     using System.Data.Entity.Validation;
     using System.Diagnostics;
     using System.Linq;
-
     using Models.ObjectTemplates;
     using Models.PlayerAssets;
     using Models.Requirements;
@@ -45,7 +44,7 @@
                     Shield = 4000,
                     GasConsumption = 100,
                     Damage = 350,
-                    BuildTime = new TimeSpan(0, 0, 5),
+                    BuildTime = new TimeSpan(0, 5, 0),
                     ShipCost = new ResourceBank(3000, 1000, 0)
                 },
                 new ShipTemplate
@@ -58,7 +57,7 @@
                     Speed = 20,
                     GasConsumption = 200,
                     ShipCost = new ResourceBank(6000, 4000, 0),
-                    BuildTime = new TimeSpan(0, 0, 8)
+                    BuildTime = new TimeSpan(0, 8, 0)
                 },
                 new ShipTemplate
                 {
@@ -70,7 +69,7 @@
                     Speed = 20,
                     GasConsumption = 300,
                     ShipCost = new ResourceBank(20000, 7000, 0),
-                    BuildTime = new TimeSpan(0, 0, 30)
+                    BuildTime = new TimeSpan(0, 30, 0)
                 },
                 new ShipTemplate
                 {
@@ -82,7 +81,7 @@
                     Speed = 20,
                     GasConsumption = 800,
                     ShipCost = new ResourceBank(40000, 20000, 0),
-                    BuildTime = new TimeSpan(0, 1, 0)
+                    BuildTime = new TimeSpan(1, 0, 0)
                 },
                 new ShipTemplate
                 {
@@ -94,7 +93,7 @@
                     Speed = 20,
                     GasConsumption = 700,
                     ShipCost = new ResourceBank(50000, 25000, 10000),
-                    BuildTime = new TimeSpan(0, 1, 30)
+                    BuildTime = new TimeSpan(1, 30, 0)
                 },
                 new ShipTemplate
                 {
@@ -106,7 +105,7 @@
                     Speed = 20,
                     GasConsumption = 1000,
                     ShipCost = new ResourceBank(60000, 50000, 15000),
-                    BuildTime = new TimeSpan(0, 2, 0)
+                    BuildTime = new TimeSpan(2, 0, 0)
                 },
                 new ShipTemplate
                 {
@@ -118,7 +117,7 @@
                     Speed = 20,
                     GasConsumption = 1,
                     ShipCost = new ResourceBank(1000, 0, 60),
-                    BuildTime = new TimeSpan(0, 0, 1)
+                    BuildTime = new TimeSpan(0, 1, 0)
                 },
                 new ShipTemplate
                 {
@@ -130,7 +129,7 @@
                     Speed = 20,
                     GasConsumption = 1000,
                     ShipCost = new ResourceBank(10000, 20000, 1000),
-                    BuildTime = new TimeSpan(0, 1, 30)
+                    BuildTime = new TimeSpan(1, 30, 0)
                 },
                 new ShipTemplate
                 {
@@ -142,7 +141,7 @@
                     Speed = 20,
                     GasConsumption = 0,
                     ShipCost = new ResourceBank(),
-                    BuildTime = new TimeSpan(0, 0, 40)
+                    BuildTime = new TimeSpan(0, 40, 0)
                 },
                 new ShipTemplate
                 {
@@ -154,7 +153,7 @@
                     Speed = 20,
                     GasConsumption = 100,
                     ShipCost = new ResourceBank(10000, 8000, 2000),
-                    BuildTime = new TimeSpan(0, 0, 50)
+                    BuildTime = new TimeSpan(0, 50, 0)
                 },
                 new ShipTemplate
                 {
@@ -166,7 +165,7 @@
                     Speed = 20,
                     GasConsumption = 50,
                     ShipCost = new ResourceBank(2000, 2000, 0),
-                    BuildTime = new TimeSpan(0, 0, 10)
+                    BuildTime = new TimeSpan(0, 10, 0)
                 },
                 new ShipTemplate
                 {
@@ -178,7 +177,7 @@
                     Speed = 20,
                     GasConsumption = 200,
                     ShipCost = new ResourceBank(6000, 6000, 0),
-                    BuildTime = new TimeSpan(0, 0, 30)
+                    BuildTime = new TimeSpan(0, 30, 0)
                 }
             };
 
@@ -190,9 +189,36 @@
         {
             var buildings = new List<BuildingTemplate>
             {
-                new BuildingTemplate {Name = "Metal Mine", Description = "Main source for extraction of metal", MaxLevel = 30, BuildingType = BuildingType.Metal, Income = 500, BuildTime = new TimeSpan(0, 0, 1), ResourceRequirements = new ResourceBank()},
-                new BuildingTemplate {Name = "Crystal Mine", Description = "Main source for extracting crystals", MaxLevel = 30, BuildingType = BuildingType.Crystal, Income = 500, BuildTime = new TimeSpan(0, 0, 1), ResourceRequirements = new ResourceBank()},
-                new BuildingTemplate {Name = "Gas Mine", Description = "Main source for extracting gas", MaxLevel = 30, BuildingType = BuildingType.Gas, Income = 500, BuildTime = new TimeSpan(0, 0, 1), ResourceRequirements = new ResourceBank()},
+                new BuildingTemplate
+                {
+                    Name = "Metal Mine",
+                    Description = "Main source for extraction of metal",
+                    MaxLevel = 30,
+                    BuildingType = BuildingType.Metal,
+                    Income = 500,
+                    BuildTime = new TimeSpan(0, 0, 10),
+                    ResourceRequirements = new ResourceBank(60, 15, 0, 11)
+                },
+                new BuildingTemplate
+                {
+                    Name = "Crystal Mine",
+                    Description = "Main source for extracting crystals",
+                    MaxLevel = 30,
+                    BuildingType = BuildingType.Crystal,
+                    Income = 500,
+                    BuildTime = new TimeSpan(0, 1, 0),
+                    ResourceRequirements = new ResourceBank(48, 24, 0, 11)
+                },
+                new BuildingTemplate
+                {
+                    Name = "Gas Mine",
+                    Description = "Main source for extracting gas",
+                    MaxLevel = 30,
+                    BuildingType = BuildingType.Gas,
+                    Income = 500,
+                    BuildTime = new TimeSpan(0, 1, 0),
+                    ResourceRequirements = new ResourceBank(225, 75, 0, 22)
+                },
                 new BuildingTemplate
                 {
                     Name = "Solar Panel",
@@ -200,18 +226,26 @@
                     MaxLevel = 30,
                     BuildingType = BuildingType.SolarPanels,
                     Income = 500,
-                    BuildTime = new TimeSpan(0, 0, 1),
-                    ResourceRequirements = new ResourceBank()
+                    BuildTime = new TimeSpan(0, 1, 0),
+                    ResourceRequirements = new ResourceBank(75, 30, 0, 0)
                 },
-                new BuildingTemplate {Name = "Robot Factory", Description = "Robot Factory", MaxLevel = 14, BuildingType = BuildingType.Other, BuildTime = new TimeSpan(0, 0, 1), ResourceRequirements = new ResourceBank()},
+                new BuildingTemplate
+                {
+                    Name = "Robot Factory",
+                    Description = "Robot Factory",
+                    MaxLevel = 14,
+                    BuildingType = BuildingType.Other,
+                    BuildTime = new TimeSpan(0, 1, 0),
+                    ResourceRequirements = new ResourceBank(400, 120, 200, 0)
+                },
                 new BuildingTemplate
                 {
                     Name = "Science Facility",
                     Description = "Facility where your scientiests invent and develop new technologies",
                     MaxLevel = 15,
                     BuildingType = BuildingType.ScienceFacility,
-                    BuildTime = new TimeSpan(0, 0, 1),
-                    ResourceRequirements = new ResourceBank()
+                    BuildTime = new TimeSpan(0, 1, 0),
+                    ResourceRequirements = new ResourceBank(200, 400, 200, 0)
                 },
                 new BuildingTemplate
                 {
@@ -223,8 +257,8 @@
                         new BuildingRequirement {BuildingLevel = 2, RequiredBuildingId = 5}
                     },
                     BuildingType = BuildingType.Spaceport,
-                    BuildTime = new TimeSpan(0, 0, 1),
-                    ResourceRequirements = new ResourceBank()
+                    BuildTime = new TimeSpan(0, 1, 0),
+                    ResourceRequirements = new ResourceBank(400, 200, 100, 0)
                 },
                 new BuildingTemplate
                 {
@@ -232,8 +266,8 @@
                     Description = "Inter-planet trade hub for trading with all foreign merchants",
                     MaxLevel = 10,
                     BuildingType = BuildingType.TradeCenter,
-                    BuildTime = new TimeSpan(0, 0, 1),
-                    ResourceRequirements = new ResourceBank()
+                    BuildTime = new TimeSpan(0, 1, 0),
+                    ResourceRequirements = new ResourceBank(3000, 2000, 1000, 0)
                 },
                 new BuildingTemplate
                 {
@@ -241,8 +275,8 @@
                     Description = "Provides additional highly secured depot for storing your extracted metal",
                     MaxLevel = 20,
                     BuildingType = BuildingType.MetalWarehouse,
-                    BuildTime = new TimeSpan(0, 0, 1),
-                    ResourceRequirements = new ResourceBank()
+                    BuildTime = new TimeSpan(0, 1, 0),
+                    ResourceRequirements = new ResourceBank(2000, 0, 0, 0)
                 },
                 new BuildingTemplate
                 {
@@ -250,8 +284,8 @@
                     Description = "Provides additional highly secured depot for storing your extracted crystals",
                     MaxLevel = 20,
                     BuildingType = BuildingType.CrystalWareHouse,
-                    BuildTime = new TimeSpan(0, 0, 1),
-                    ResourceRequirements = new ResourceBank()
+                    BuildTime = new TimeSpan(0, 1, 0),
+                    ResourceRequirements = new ResourceBank(1500, 500, 0, 0)
                 },
                 new BuildingTemplate
                 {
@@ -259,8 +293,8 @@
                     Description = "Provides additional highly secured depot for storing your extracted gas",
                     MaxLevel = 20,
                     BuildingType = BuildingType.GasTank,
-                    BuildTime = new TimeSpan(0, 0, 1),
-                    ResourceRequirements = new ResourceBank()
+                    BuildTime = new TimeSpan(0, 1, 0),
+                    ResourceRequirements = new ResourceBank(1500, 250, 250, 0)
                 }
             };
 
@@ -275,11 +309,11 @@
                 {
                     foreach (var validationError in validationErrors.ValidationErrors)
                     {
-                        Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName,
+                            validationError.ErrorMessage);
                     }
                 }
             }
-            
         }
     }
 }

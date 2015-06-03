@@ -6,6 +6,8 @@
     using System.Linq;
     using System.Linq.Expressions;
     using Contracts;
+    using Models;
+    using Models.PlayerAssets;
 
     public class GenericRepository<T> : IRepository<T> where T : class
     {
@@ -75,6 +77,21 @@
         public int SaveChanges()
         {
             return this.context.SaveChanges();
+        }
+
+        public ResourceBank GetResources(T entity, string userId)
+        {
+            var type = typeof(T);
+
+            if (type.IsAssignableFrom(typeof(User)))
+            {
+                var user = this.context.Users.Find(userId);
+                var resources = user.Planets.FirstOrDefault().PlanetResourceses;
+
+                return resources;
+            }
+
+            return new ResourceBank();
         }
 
         private void ChangeState(T entity, EntityState state)

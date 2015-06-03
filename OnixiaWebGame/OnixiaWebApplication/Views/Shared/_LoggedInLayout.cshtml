@@ -21,13 +21,25 @@
         
     }
         <label id="serverTime" class="servertime"></label>
-        <div class="energy logo"><label>0</label>
+        <div class="energy logo"><label>@if (ViewBag.Resources != null)
+                                        {
+                                            @ViewBag.Resources.Energy
+                                        }</label>
         </div>
-        <div class="gas logo"><label>0</label>
+        <div class="gas logo"><label>@if (ViewBag.Resources != null)
+        {
+            @ViewBag.Resources.Gas
+        }</label>
         </div>
-        <div class="crystal logo"><label>0</label>
+        <div class="crystal logo"><label>@if (ViewBag.Resources != null)
+        {
+            @ViewBag.Resources.Crystal
+        }</label>
         </div>
-        <div class="metal logo"><label>0</label>
+        <div class="metal logo"><label>@if (ViewBag.Resources != null)
+        {
+            @ViewBag.Resources.Metal
+        }</label>
         </div>
     </div>
 </div>
@@ -57,19 +69,31 @@
         <div class="res">
             <div class="res-box">
                 <div class="metal logo" title="{translate 'Metal'}"></div>
-                <label>0</label>
+                <label>@if (ViewBag.Resources != null)
+                {
+                    @ViewBag.Resources.Metal
+                }</label>
             </div>
             <div class="res-box">
                 <div class="crystal logo" title="{translate 'Crystal'}"></div>
-                <label>0</label>
+                <label>@if (ViewBag.Resources != null)
+                {
+                    @ViewBag.Resources.Crystal
+                }</label>
             </div>
             <div class="res-box">
                 <div class="gas logo" title="{translate 'Gas'}"></div>
-                <label>0</label>
+                <label>@if (ViewBag.Resources != null)
+                {
+                    @ViewBag.Resources.Gas
+                }</label>
             </div>
             <div class="res-box last">
                 <div class="energy logo" title="{translate 'Energy'}"></div>
-                <label>0</label>
+                <label>@if (ViewBag.Resources != null)
+                {
+                    @ViewBag.Resources.Energy
+                }</label>
             </div>
         </div>
         <div class="menu">

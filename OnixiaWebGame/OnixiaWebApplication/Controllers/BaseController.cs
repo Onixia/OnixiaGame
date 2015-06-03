@@ -23,6 +23,7 @@
         {
             this.Data = data;
             RefreshResources();
+            this.ViewBag.Metal = this.TempData["metal"];
         }
 
         protected User UserProfile { get; private set; }
@@ -68,6 +69,11 @@
                 userPlanet.PlanetResourceses.Energy += energyIncome;
                 this.Data.SaveChanges();
                 //}
+
+                this.TempData["metal"] = userPlanet.PlanetResourceses.Metal;
+                this.ViewBag.Crystal = userPlanet.PlanetResourceses.Crystal;
+                this.ViewBag.Gas = userPlanet.PlanetResourceses.Gas;
+                this.ViewBag.Energy = userPlanet.PlanetResourceses.Energy;
             }
         }
     }

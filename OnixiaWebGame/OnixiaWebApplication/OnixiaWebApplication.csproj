@@ -384,6 +384,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\GetUserResourcesAttribute\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

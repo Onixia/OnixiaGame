@@ -93,6 +93,9 @@
 
                 shipsList.Add(newShip);
             }
+
+            this.ViewBag.Resources = this.Data.Users.GetResources(this.UserProfile, this.UserProfile.Id);
+
             return View(new ShipsModel(){Ships = shipsList});
         }
 

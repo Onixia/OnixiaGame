@@ -31,11 +31,12 @@
             {
                 bool isValid = true;
                 bool isBuilding = false;
-                var wantedBuilding = userBuildings.FirstOrDefault(ub => ub.Id == building.Id);
+                var wantedBuilding = userBuildings.FirstOrDefault(ub => ub.BuildingTemplateId == building.Id);
+                string errorString = "";
                 TimeSpan elapsedTime = new TimeSpan();
-                if (wantedBuilding != null)
+                if (wantedBuilding != null && wantedBuilding.StartedOn != null)
                 {
-                    elapsedTime = DateTime.Now - wantedBuilding.StartedOn;
+                    elapsedTime = DateTime.Now - (DateTime)wantedBuilding.StartedOn;
                     if (elapsedTime < wantedBuilding.BuildingTemplate.BuildTime)
                     {
                         isBuilding = true;
@@ -46,22 +47,29 @@
                 {
                     var currentWantedUserBuilding = userBuildings.FirstOrDefault(ub => ub.BuildingTemplate.Id == requirement.Id);
                     if (currentWantedUserBuilding == null
-                        || requirement.BuildingLevel > currentWantedUserBuilding.BuildingLevel
-                        || !userPlanet.PlanetResourceses.HasEnoughFor(requirement.RequiredBuilding.ResourceRequirements)
-                        || isBuilding)
+                        || requirement.BuildingLevel > currentWantedUserBuilding.BuildingLevel)
                     {
                         isValid = false;
+                        errorString = "Does not have requirement " + requirement.RequiredBuilding.Name;
                     }
+                }
+                if (!userPlanet.PlanetResourceses.HasEnoughFor(building.ResourceRequirements)
+                   || isBuilding)
+                {
+                    isValid = false;
+                    errorString = "Not Enough Resources";
                 }
 
                 int currentLevel = 0;
 
+                var existingUserBuilding = userBuildings.FirstOrDefault(b => b.BuildingTemplate.Id == building.Id);
                 if (userBuildings.Any())
                 {
-                    var buildingLevel = userBuildings.FirstOrDefault(b => b.Id == building.Id);
-
+                    var buildingLevel = userBuildings.FirstOrDefault(b => b.BuildingTemplate.Id == building.Id);
                     currentLevel = (buildingLevel == null ? 0 : buildingLevel.BuildingLevel);
                 }
+
+                var remainingTime = TimeSpan.FromSeconds(building.BuildTime.TotalSeconds*(currentLevel + 1));
 
                 BuildingViewModel newBuilding = new BuildingViewModel
                 {
@@ -71,13 +79,18 @@
                     CurrentLevel = currentLevel,
                     IsBuildable = isValid,
                     IsBuilding = isBuilding,
-                    TimeLeft = building.BuildTime - elapsedTime,
-                    ResourceRequirements = building.ResourceRequirements
+                    TimeLeft = isBuilding ? (remainingTime - elapsedTime) : remainingTime,
+                    ResourceRequirements = existingUserBuilding == null? building.ResourceRequirements : existingUserBuilding.CalculateCost(),
+                    ErrorMessage = errorString
                 };
 
 
                 buildingsList.Add(newBuilding);
             }
+
+            this.CheckAndUpdateBuildingStatus();
+            this.ViewBag.Resources = this.Data.Users.GetResources(this.UserProfile, this.UserProfile.Id);
+
             return View(new CombinedBuildingsViewModel(buildingsList));
         }
 
@@ -91,37 +104,67 @@
 
             var userPlanetBuildings = this.UserProfile.GetPlanetBuildings();
             var userPlanet = this.UserProfile.Planets.FirstOrDefault();
-            var newPlanetBuilding = new PlanetBuilding();
 
             var existingBuilding = userPlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.Id == buildingTemplate.Id);
-            int playerBuildingLevel = 0;
-            if (existingBuilding != null)
+            if (existingBuilding == null)
             {
-                playerBuildingLevel = existingBuilding.BuildingLevel;
-
-            }
-
-            var neededResourses = new ResourceBank();
-            neededResourses.Crystal = buildingTemplate.ResourceRequirements.Crystal * (playerBuildingLevel + 1);
-            neededResourses.Metal = buildingTemplate.ResourceRequirements.Metal * (playerBuildingLevel + 1);
-            neededResourses.Gas = buildingTemplate.ResourceRequirements.Gas * (playerBuildingLevel + 1);
-            neededResourses.Energy = buildingTemplate.ResourceRequirements.Energy * (playerBuildingLevel + 1);
-
-            if (userPlanet.PlanetResourceses.HasEnoughFor(neededResourses))
-            {
-                newPlanetBuilding.BuildingLevel = playerBuildingLevel;
-                newPlanetBuilding.BuildingTemplateId = buildingTemplate.Id;
-                newPlanetBuilding.StartedOn = DateTime.Now;
-                newPlanetBuilding.PlanetId = userPlanet.Id;
-                userPlanet.PlanetResourceses -= neededResourses;
-
-                this.Data.PlanetBuildings.Add(newPlanetBuilding);
-                this.Data.SaveChanges();
+                existingBuilding = new PlanetBuilding()
+                {
+                    BuildingLevel = 0,
+                    BuildingTemplateId = buildingTemplate.Id,
+                    PlanetId = userPlanet.Id,
+                    StartedOn = DateTime.Now
+                };
             }
 
 
+            userPlanet.PlanetResourceses -= existingBuilding.CalculateCost();
+            if (!userPlanet.PlanetResourceses.HasEnoughFor(existingBuilding.CalculateCost()))
+            {
+                return new HttpNotFoundResult();
+            }
+            else if (existingBuilding.BuildingLevel == 0)
+            {
+                this.Data.PlanetBuildings.Add(existingBuilding);
+            }
+            else
+            {
+                this.Data.PlanetBuildings.Update(existingBuilding);
+                this.Data.Planets.Update(userPlanet);
+            }
+
+            this.Data.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult CancelBuilding(string name)
+        {
+            var building = this.Data.PlanetBuildings.Find(b => b.BuildingTemplate.Name == name).FirstOrDefault();
+            building.StartedOn = null;
+
+            var userPlanet = this.UserProfile.Planets.FirstOrDefault();
+            userPlanet.PlanetResourceses += building.BuildingTemplate.ResourceRequirements;
+
+            this.Data.PlanetBuildings.Update(building);
+            this.Data.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        private void CheckAndUpdateBuildingStatus()
+        {
+            var userPlanetBuildings = this.UserProfile.Planets.FirstOrDefault().PlanetBuildings;
+
+            foreach (var b in userPlanetBuildings)
+            {
+                if (DateTime.Now > b.StartedOn + b.BuildingTemplate.BuildTime)
+                {
+                    b.BuildingLevel ++;
+                    this.Data.SaveChanges();
+                }
+            }
+            
         }
     }
 }
