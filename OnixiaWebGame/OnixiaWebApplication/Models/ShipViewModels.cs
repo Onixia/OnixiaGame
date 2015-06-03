@@ -38,6 +38,8 @@
         public int AvailableAmount { get; set; }
 
         public string ErrorMessage { get; set; }
+
+        public int BuildableAmount { get; set; }
     }
 
     public class ShipsModel

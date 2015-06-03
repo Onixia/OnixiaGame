@@ -1,4 +1,9 @@
-﻿namespace OnixiaWebApplication.Controllers
+﻿using System;
+using Onixia.Models;
+using Onixia.Models.ObjectTemplates;
+using Onixia.Models.PlayerAssets;
+
+namespace OnixiaWebApplication.Controllers
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -29,6 +34,7 @@
                 bool isBuilding = false;
                 int shipsCount = 0;
                 int buildingCount = 0;
+                int canBuildShipsCount = 0;
 
                 var wantedShip = userShips.FirstOrDefault(s => s.Ship.Id == ship.Id);
                 var currentBuildList = userPlanet.CurrentOrder;
@@ -71,6 +77,17 @@
                             canBuild = false;
                         }
                     }
+
+                    ResourceBank rb = userPlanet.PlanetResourceses;
+                    while (rb.HasEnoughFor(ship.ShipCost))
+                    {
+                        rb -= ship.ShipCost;
+                        canBuildShipsCount += 1;
+                        if (canBuildShipsCount >= 500)
+                        {
+                            break;
+                        }
+                    }
                 }
 
                 ShipViewModel newShip = new ShipViewModel
@@ -88,7 +105,8 @@
                     WeaponType = ship.WeaponType,
                     InProduction = buildingCount,
                     CanBuild = canBuild,
-                    ShipCost = ship.ShipCost
+                    ShipCost = ship.ShipCost,
+                    BuildableAmount = canBuildShipsCount
                 };
 
                 shipsList.Add(newShip);
@@ -108,9 +126,35 @@
         //{
 
         //}
-        public ActionResult Create()
+        public ActionResult Create(string name, int count)
         {
-            throw new System.NotImplementedException();
+            count += 1;
+            var WantedShip = Data.Ships.Find(s => s.Name == name).FirstOrDefault();
+            var userPlanet = UserProfile.Planets.FirstOrDefault();
+            if (WantedShip != null && userPlanet != null)
+            {
+                ShipOrder shipOrder = new ShipOrder()
+                {
+                    BuildTimeLength = WantedShip.BuildTime,
+                    Ships = new List<PlanetShip>()
+                    {
+                        new PlanetShip()
+                        {
+                            ShipId = WantedShip.Id,
+                            ShipCount = count
+                        }
+                    },
+                    TargetPlanetId = userPlanet.Id,
+                    TimeCreated = DateTime.Now
+                };
+                return new HttpStatusCodeResult(200);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+
+            return new HttpNotFoundResult();
         }
     }
 }
