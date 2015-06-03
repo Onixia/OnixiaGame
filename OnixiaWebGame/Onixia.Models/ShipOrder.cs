@@ -1,4 +1,6 @@
-﻿namespace Onixia.Models
+﻿using Onixia.Models.PlayerAssets;
+
+namespace Onixia.Models
 {
     using System;
     using System.Collections.Generic;
@@ -13,18 +15,25 @@
     /// </summary>
     public class ShipOrder
     {
+        private ICollection<PlanetShip> shipsCount;
         public ShipOrder()
         {
-            this.ShipsCount = new Dictionary<Ship, int>();
+            this.shipsCount = new HashSet<PlanetShip>();
         }
 
         [Key]
         public int Id { get; set; }
 
         [Column(TypeName = "datetime2")]
-        public DateTime OrderMade { get; set; }
+        public DateTime TimeCreated { get; set; }
 
-        public Dictionary<Ship, int> ShipsCount { get; set; }
+        public virtual ICollection<PlanetShip> ShipsCount
+        {
+            get { return this.shipsCount; }
+            set { this.shipsCount = value; }
+        }
+
+        public TimeSpan BuildTimeLength { get; set; }
 
         public virtual Planet TargetPlanet { get; set; }
     }

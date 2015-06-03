@@ -13,6 +13,10 @@
 
         public WeaponType WeaponType { get; set; }
 
+        public string Name { get; set; }
+
+        public string Description { get; set; }
+
         [Required]
         public float Armor { get; set; }
 
