@@ -239,7 +239,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PlanetPostModel.cs" />
     <Compile Include="Models\PlanetViewModel.cs" />
-    <Compile Include="Models\ShipsViewModel.cs" />
+    <Compile Include="Models\ShipModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -379,6 +379,7 @@
     <Content Include="Views\Shared\DisplayTemplates\BuildingViewModel.cshtml" />
     <Content Include="Views\Planet\Create.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ShipViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

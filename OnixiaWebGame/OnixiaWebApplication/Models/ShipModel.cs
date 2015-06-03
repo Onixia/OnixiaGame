@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Onixia.Models.ObjectTemplates;
-using Onixia.Models.PlayerAssets;
-
-namespace OnixiaWebApplication.Models
+﻿namespace OnixiaWebApplication.Models
 {
-    public class ShipsModel
+    using System;
+    using System.Collections.Generic;
+    using Onixia.Models.ObjectTemplates;
+    using Onixia.Models.PlayerAssets;
+
+    public class ShipViewModel
     {
         public string Name { get; set; }
 
@@ -38,5 +36,24 @@ namespace OnixiaWebApplication.Models
         public int InProduction { get; set; }
 
         public int AvailableAmount { get; set; }
+
+        public string ErrorMessage { get; set; }
+    }
+
+    public class ShipsModel
+    {
+        public ShipsModel()
+        {
+            this.Ships = new List<ShipViewModel>();
+        }
+        public ICollection<ShipViewModel> Ships { get; set; }
+        
+    }
+
+    public class ShipPostModel
+    {
+        public int ShipId { get; set; }
+
+        public int ShipCount { get; set; }
     }
 }
