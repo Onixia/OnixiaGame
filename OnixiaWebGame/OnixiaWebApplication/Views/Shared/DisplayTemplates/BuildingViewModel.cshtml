@@ -44,7 +44,7 @@
         <a href="">
             <div class="build">
                 <div class="build-logo"></div>
-                Build Level : @Model.CurrentLevel + 1
+                Build Level @(Model.CurrentLevel + 1)
             </div>
         </a>
         }
@@ -59,12 +59,10 @@
         }
         else
         {
-            <a href="#">
-                <div class="build">
-                    <div class="build-logo"></div>
-                    <label class="">Need Requirements</label>
-                </div>
-            </a>
+            <div class="build">
+                <div class="build-logo"></div>
+                <label class="err">Need Requirements</label>
+            </div>
         }
     </div>
 </div>
