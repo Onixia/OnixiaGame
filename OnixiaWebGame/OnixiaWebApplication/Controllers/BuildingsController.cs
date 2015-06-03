@@ -111,8 +111,10 @@
                 existingBuilding = new PlanetBuilding()
                 {
                     BuildingLevel = 0,
+                    BuildingTemplate = buildingTemplate,
                     BuildingTemplateId = buildingTemplate.Id,
                     PlanetId = userPlanet.Id,
+                    Planet = userPlanet,
                     StartedOn = DateTime.Now
                 };
             }
@@ -161,6 +163,7 @@
                 if (DateTime.Now > b.StartedOn + b.BuildingTemplate.BuildTime)
                 {
                     b.BuildingLevel ++;
+                    b.StartedOn = null;
                     this.Data.SaveChanges();
                 }
             }
