@@ -8,7 +8,7 @@
     {
         public Technology()
         {
-            this.BuildingRequirements   = new Dictionary<Building, bool>();
+            this.BuildingRequirements   = new Dictionary<BuildingTemplate, bool>();
             this.TechnologyRequirements = new Dictionary<Technology, bool>();
             this.ResourceCost           = new ResourceBank();
         }
@@ -23,7 +23,7 @@
 
         public Dictionary<Technology, bool> TechnologyRequirements { get; set; }
 
-        public Dictionary<Building, bool> BuildingRequirements     { get; set; }
+        public Dictionary<BuildingTemplate, bool> BuildingRequirements     { get; set; }
 
         public ResourceBank ResourceCost                           { get; set; } 
     }

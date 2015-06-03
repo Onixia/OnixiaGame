@@ -12,15 +12,17 @@
             
         IRepository<Planet> Planets { get; }
 
-        IRepository<Ship> Ships { get; }
+        IRepository<ShipTemplate> ShipsTemplates { get; }
 
         IRepository<Asteroid> Asteroids { get; }
 
-        IRepository<Building> Buildings { get; }
+        IRepository<BuildingTemplate> BuildingsTemplates { get; }
 
         IRepository<BuildingRequirement> BuildingRequirements { get; }
 
         IRepository<ShipRequirement> ShipRequirements { get; }
+
+        IRepository<PlanetBuilding> PlanetBuildings { get; } 
 
         int SaveChanges();
     }

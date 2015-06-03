@@ -12,7 +12,7 @@
         [ForeignKey("Ship")]
         public int ShipId { get; set; }
 
-        public virtual Ship Ship { get; set; }
+        public virtual ShipTemplate Ship { get; set; }
 
         public int ShipCount { get; set; }
     }

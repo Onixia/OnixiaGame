@@ -9,7 +9,7 @@
         public int Id { get; set; }
 
         [Required]
-        public Ship RequiredShip { get; set; }
+        public ShipTemplate RequiredShip { get; set; }
 
         [Required]
         public int RequiredCount { get; set; }
