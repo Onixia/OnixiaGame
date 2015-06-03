@@ -50,6 +50,12 @@ namespace Onixia.Models.ObjectTemplates
         Metal,
         Crystal,
         Gas,
-        SolarPanels
+        SolarPanels,
+        GasTank,
+        MetalWarehouse,
+        CrystalWareHouse,
+        TradeCenter,
+        Spaceport,
+        ScienceFacility
     }
 }

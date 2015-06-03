@@ -32,7 +32,7 @@
         {
             var ships = new List<Ship>
             {
-                new Ship { Name}
+                new Ship { Name = "Scout", ArmorType = ArmorType.Light, }
             }
         }
 
@@ -55,21 +55,23 @@
         {
             var buildings = new List<Building>
             {
-                new Building {Name = "Metal Mine", Description = "Main source for extraction of metal", MaxLevel = 30},
-                new Building {Name = "Crystal Mine", Description = "Main source for extracting crystals", MaxLevel = 30},
-                new Building {Name = "Gas Mine", Description = "Main source for extracting gas", MaxLevel = 30},
+                new Building {Name = "Metal Mine", Description = "Main source for extraction of metal", MaxLevel = 30, BuildingType = BuildingType.Metal },
+                new Building {Name = "Crystal Mine", Description = "Main source for extracting crystals", MaxLevel = 30, BuildingType = BuildingType.Crystal },
+                new Building {Name = "Gas Mine", Description = "Main source for extracting gas", MaxLevel = 30, BuildingType = BuildingType.Gas },
                 new Building
                 {
                     Name = "Solar Panel",
                     Description = "Converts solar rays into energy suitable for your needs",
-                    MaxLevel = 30
+                    MaxLevel = 30,
+                    BuildingType = BuildingType.SolarPanels
                 },
                 new Building {Name = "Robot Factory", MaxLevel = 14},
                 new Building
                 {
                     Name = "Science Facility",
                     Description = "Facility where your scientiests invent and develop new technologies",
-                    MaxLevel = 15
+                    MaxLevel = 15,
+                    BuildingType = BuildingType.ScienceFacility
                 },
                 new Building
                 {
@@ -79,31 +81,36 @@
                     BuildingRequirements = new List<BuildingRequirement>
                     {
                         new BuildingRequirement {BuildingLevel = 2, RequiredBuildingId = 5}
-                    }
+                    },
+                    BuildingType = BuildingType.Spaceport
                 },
                 new Building
                 {
                     Name = "Trade Center",
                     Description = "Inter-planet trade hub for trading with all foreign merchants",
-                    MaxLevel = 10
+                    MaxLevel = 10,
+                    BuildingType = BuildingType.TradeCenter
                 },
                 new Building
                 {
                     Name = "Metal Warehouse",
                     Description = "Provides additional highly secured depot for storing your extracted metal",
-                    MaxLevel = 20
+                    MaxLevel = 20,
+                    BuildingType = BuildingType.MetalWarehouse
                 },
                 new Building
                 {
                     Name = "Crystal Warehouse",
                     Description = "Provides additional highly secured depot for storing your extracted crystals",
-                    MaxLevel = 20
+                    MaxLevel = 20,
+                    BuildingType = BuildingType.CrystalWareHouse
                 },
                 new Building
                 {
                     Name = "Gas Tank",
                     Description = "Provides additional highly secured depot for storing your extracted gas",
-                    MaxLevel = 20
+                    MaxLevel = 20,
+                    BuildingType = BuildingType.GasTank
                 }
             };
 
