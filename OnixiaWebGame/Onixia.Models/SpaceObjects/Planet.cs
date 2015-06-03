@@ -1,6 +1,4 @@
-﻿
-
-namespace Onixia.Models
+﻿namespace Onixia.Models
 {
     using System;
     using System.Collections.Generic;
@@ -12,12 +10,12 @@ namespace Onixia.Models
     public class Planet : SpaceObject
     {
         private ICollection<PlanetBuilding> buildings;
-        private ICollection<Ship> ships;
+        private ICollection<PlanetShip> ships;
  
         public Planet()
         {
             this.buildings = new HashSet<PlanetBuilding>();
-            this.ships = new HashSet<Ship>();
+            this.ships = new HashSet<PlanetShip>();
         }
         public int Id { get; set; }
 
@@ -44,11 +42,13 @@ namespace Onixia.Models
             set { this.buildings = value; }
         }
 
-        public virtual ICollection<Ship> Ships 
+        public virtual ICollection<PlanetShip> Ships 
         {
             get { return this.ships; }
             set { this.ships = value; }
         }
+
+        public ShipOrder CurrentOrder { get; set; }
 
         [Column(TypeName = "datetime2")]
         public DateTime? LastUpdatedOn { get; set; }
