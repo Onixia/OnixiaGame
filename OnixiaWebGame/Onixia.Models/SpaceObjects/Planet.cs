@@ -48,7 +48,10 @@
             set { this.ships = value; }
         }
 
-        public ShipOrder CurrentOrder { get; set; }
+        [ForeignKey("CurrentOrder")]
+        public int CurrentOrderId { get; set; }
+
+        public virtual ShipOrder CurrentOrder { get; set; }
 
         [Column(TypeName = "datetime2")]
         public DateTime? LastUpdatedOn { get; set; }

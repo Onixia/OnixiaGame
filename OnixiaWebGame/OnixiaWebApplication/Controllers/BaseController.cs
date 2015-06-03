@@ -22,7 +22,7 @@
         protected BaseController(IOnixiaData data)
         {
             this.Data = data;
-            refreshResources();
+            RefreshResources();
         }
 
         protected User UserProfile { get; private set; }
@@ -41,7 +41,7 @@
 
         protected IOnixiaData Data { get; set; }
 
-        protected void refreshResources()
+        protected void RefreshResources()
         {
             if (this.UserProfile != null)
             {
@@ -57,10 +57,10 @@
                 var gasMineLevel = userPlanet.Buildings.FirstOrDefault(b => b.Building.BuildingType == BuildingType.Gas).BuildingLevel;
                 var solarPanelsLevel = userPlanet.Buildings.FirstOrDefault(b => b.Building.BuildingType == BuildingType.SolarPanels).BuildingLevel;
 
-                var metalIncome = metalMineLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Metal).Income.Metal;
-                var crystalIncome = metalMineLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Metal).Income.Metal;
-                var gasIncome = metalMineLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Metal).Income.Metal;
-                var energyIncome = metalMineLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Metal).Income.Metal;
+                var metalIncome = metalMineLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Metal).Income;
+                var crystalIncome = crystalMineLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Crystal).Income;
+                var gasIncome = gasMineLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Gas).Income;
+                var energyIncome = solarPanelsLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.SolarPanels).Income;
 
                 userPlanet.PlanetResourceses.Metal += metalIncome;
                 userPlanet.PlanetResourceses.Crystal += crystalIncome;

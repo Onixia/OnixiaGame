@@ -27,13 +27,16 @@ namespace Onixia.Models
         [Column(TypeName = "datetime2")]
         public DateTime TimeCreated { get; set; }
 
-        public virtual ICollection<PlanetShip> ShipsCount
+        public virtual ICollection<PlanetShip> Ships
         {
             get { return this.shipsCount; }
             set { this.shipsCount = value; }
         }
 
         public TimeSpan BuildTimeLength { get; set; }
+
+        [ForeignKey("TargetPlanet")]
+        public int TargetPlanetId { get; set; }
 
         public virtual Planet TargetPlanet { get; set; }
     }

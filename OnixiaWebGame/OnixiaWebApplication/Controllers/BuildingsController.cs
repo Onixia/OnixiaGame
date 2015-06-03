@@ -56,9 +56,9 @@
 
                 if (userBuildings.Any())
                 {
-                    var buildingLevel = userBuildings.FirstOrDefault(b => b.Id == building.Id).BuildingLevel;
+                    var buildingLevel = userBuildings.FirstOrDefault(b => b.Id == building.Id);
 
-                    currentLevel = (buildingLevel == null ? 0 : buildingLevel);
+                    currentLevel = (buildingLevel == null ? 0 : buildingLevel.BuildingLevel);
                 }
 
                 BuildingViewModel newBuilding = new BuildingViewModel

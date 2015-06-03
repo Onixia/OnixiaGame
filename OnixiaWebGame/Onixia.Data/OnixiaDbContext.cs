@@ -48,5 +48,11 @@
         {
             return base.Set<T>();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Planet>().HasOptional(p => p.CurrentOrder).WithRequired();
+        }
     }
 }

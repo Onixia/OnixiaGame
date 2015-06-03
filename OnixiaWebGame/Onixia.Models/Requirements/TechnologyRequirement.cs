@@ -5,7 +5,7 @@
 
     using ObjectTemplates;
 
-    internal class TechnologyRequirement
+    public class TechnologyRequirement
     {
         [Key]
         public int Id { get; set; }

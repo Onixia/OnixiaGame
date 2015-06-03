@@ -13,7 +13,7 @@ namespace OnixiaWebApplication.Models
 
         public string Description { get; set; }
 
-        public ArmorType Armor { get; set; }
+        public ArmorType ArmorType { get; set; }
 
         public WeaponType WeaponType { get; set; }
 
@@ -33,6 +33,10 @@ namespace OnixiaWebApplication.Models
 
         public bool IsBuilding { get; set; }
 
-        public int Amount { get; set; }
+        public bool CanBuild { get; set; }
+
+        public int InProduction { get; set; }
+
+        public int AvailableAmount { get; set; }
     }
 }

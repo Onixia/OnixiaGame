@@ -1,4 +1,7 @@
-﻿namespace Onixia.Models.ObjectTemplates
+﻿using System.Collections.Generic;
+using Onixia.Models.Requirements;
+
+namespace Onixia.Models.ObjectTemplates
 {
     using System;
     using System.ComponentModel.DataAnnotations;
@@ -8,6 +11,11 @@
      */
     public class Ship
     {
+        public Ship()
+        {
+            this.BuildingRequirements = new HashSet<BuildingRequirement>();
+            this.TechnologyRequirements = new HashSet<TechnologyRequirement>();
+        }
         [Key]
         public int Id { get; set; }
 
@@ -36,6 +44,9 @@
         public float Speed { get; set; }
 
         public TimeSpan BuildTime { get; set; }
+
+        public virtual ICollection<BuildingRequirement> BuildingRequirements { get; set; }
+        public virtual ICollection<TechnologyRequirement> TechnologyRequirements { get; set; }
     }
 
         /*
@@ -56,4 +67,4 @@
         Medium,
         Heavy
     }
-}
+}   

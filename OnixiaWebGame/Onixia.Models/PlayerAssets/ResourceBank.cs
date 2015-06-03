@@ -13,7 +13,7 @@ namespace Onixia.Models.PlayerAssets
             this.Gas        = 0;
             this.Energy     = 0;
         }
-        public ResourceBank(float metal = 0, float crystal = 0, float gas = 0, float energy = 0)
+        public ResourceBank(int metal = 0, int crystal = 0, int gas = 0, int energy = 0)
         {
             this.Metal      = metal;
             this.Crystal    = crystal;
@@ -23,13 +23,13 @@ namespace Onixia.Models.PlayerAssets
         #endregion
 
         #region Properties
-        public float Metal   { get; set; }
+        public int Metal   { get; set; }
 
-        public float Crystal { get; set; }
+        public int Crystal { get; set; }
 
-        public float Gas     { get; set; }
+        public int Gas     { get; set; }
 
-        public float Energy  { get; set; }
+        public int Energy  { get; set; }
         #endregion
 
         #region Operators and Methods
