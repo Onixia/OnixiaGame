@@ -1,13 +1,14 @@
-﻿using Onixia.Data.Contracts;
-
-namespace Onixia.Data
+﻿namespace Onixia.Data
 {
     using System.Data.Entity;
+
+    using Contracts;
+
     using Microsoft.AspNet.Identity.EntityFramework;
+
     using Migrations;
-    using Models;    
-    using Onixia.Data.Migrations;
-    using Onixia.Models.ObjectTemplates;
+
+    using Models;
     using Models.ObjectTemplates;
     using Models.PlayerAssets;
     using Models.Requirements;

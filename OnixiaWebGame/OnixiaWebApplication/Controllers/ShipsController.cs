@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,12 +9,17 @@ using OnixiaWebApplication.Models;
 
 namespace OnixiaWebApplication.Controllers
 {
+    using System.Web.Mvc;
+
+    using Onixia.Data.Contracts;
+
     public class ShipsController : BaseController
     {
         public ShipsController(IOnixiaData data)
             : base(data)
         {
         }
+
         // GET: Ships
         public ActionResult Index()
         {
@@ -71,7 +76,6 @@ namespace OnixiaWebApplication.Controllers
             }
             return View();
         }
-
         [HttpPost]
         public ActionResult OrderShips(ShipsModel model)
         {
@@ -84,8 +88,5 @@ namespace OnixiaWebApplication.Controllers
         {
             
         }
-
-
-        
     }
 }

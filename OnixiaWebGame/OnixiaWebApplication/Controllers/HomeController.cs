@@ -1,33 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace OnixiaWebApplication.Controllers
+﻿namespace OnixiaWebApplication.Controllers
 {
-    public class HomeController : Controller
+    using System;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using Onixia.Data.Contracts;
+
+    public class HomeController : BaseController
     {
+        public HomeController(IOnixiaData data)
+            : base(data)
+        {
+        }
+
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
             {
+                if (!UserProfile.Planets.Any())
+                {
+                    return RedirectToAction("Create", "Planet");
+                }
                 var time = new TimeSpan();
                 return View();
             }
-            else
-            {
-                return RedirectToAction("Splash");
-            }
+            return RedirectToAction("Splash");
         }
 
         public ActionResult Splash()
         {
             return View();
         }
+
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Welcome to Onixia Web Game!";
 
             return View();
         }
