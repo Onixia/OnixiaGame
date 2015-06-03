@@ -15,6 +15,7 @@ namespace Onixia.Models.ObjectTemplates
         {
             this.BuildingRequirements = new HashSet<BuildingRequirement>();
             this.TechnologyRequirements = new HashSet<TechnologyRequirement>();
+            this.ShipCost = new ResourceBank();
         }
         [Key]
         public int Id { get; set; }

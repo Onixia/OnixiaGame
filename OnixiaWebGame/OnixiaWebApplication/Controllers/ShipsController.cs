@@ -21,7 +21,7 @@
             var ships = this.Data.Ships.All();
             var userPlanet = this.UserProfile.Planets.FirstOrDefault();
             var userShips = userPlanet.Ships;
-            var shipsList = new List<ShipsModel>();
+            var shipsList = new List<ShipViewModel>();
 
             foreach (var ship in ships)
             {
@@ -40,10 +40,13 @@
                     shipsCount = wantedShip.ShipCount;
                 }
 
-                if (currentBuildList.Ships.Any(s => s.ShipId == ship.Id))
+                if (currentBuildList != null)
                 {
-                    isBuilding = true;
-                    buildingCount = currentBuildList.Ships.First(s => s.ShipId == ship.Id).ShipCount;
+                    if (currentBuildList.Ships.Any(s => s.ShipId == ship.Id))
+                    {
+                        isBuilding = true;
+                        buildingCount = currentBuildList.Ships.First(s => s.ShipId == ship.Id).ShipCount;
+                    }
                 }
 
                 foreach (var requirement in ship.BuildingRequirements)
@@ -70,7 +73,7 @@
                     }
                 }
 
-                ShipsModel newShip = new ShipsModel
+                ShipViewModel newShip = new ShipViewModel
                 {
                     Name = ship.Name,
                     ArmorType = ship.ArmorType,
@@ -84,12 +87,13 @@
                     Shield = ship.Shield,
                     WeaponType = ship.WeaponType,
                     InProduction = buildingCount,
-                    CanBuild = canBuild
+                    CanBuild = canBuild,
+                    ShipCost = ship.ShipCost
                 };
 
                 shipsList.Add(newShip);
             }
-            return View();
+            return View(new ShipsModel(){Ships = shipsList});
         }
 
         //[HttpPost]
@@ -104,5 +108,9 @@
         //{
 
         //}
+        public ActionResult Create()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

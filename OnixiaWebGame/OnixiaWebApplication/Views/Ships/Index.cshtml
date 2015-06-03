@@ -1,7 +1,11 @@
-﻿
+﻿@model OnixiaWebApplication.Models.ShipsModel
 @{
-    ViewBag.Title = "Index";
+
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";   
+    ViewBag.Title = "Build ships";
 }
 
-<h2>Index</h2>
-
+<h2>Schips</h2>
+<div>
+    @Html.DisplayFor(m => m.Ships)
+</div>
