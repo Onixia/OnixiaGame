@@ -2,73 +2,73 @@
 @using Onixia.Models.PlayerAssets
 @using OnixiaWebApplication.Models;
 @model OnixiaWebApplication.Models.BuildingViewModel
-
-<div class="item">
-    <div class="title">
-        @Model.Name
-    </div>
-    <div class="resources">
-        <div class="res">
-            <div class="logo metal"></div>
-            <label class=""> @Model.ResourceRequirements.Metal </label>
+<div class="row">
+    <div class="item">
+        <div class="title">
+            @Model.Name
         </div>
-        <div class="res">
-            <div class="logo crystal"></div>
-            <label class="">@Model.ResourceRequirements.Crystal</label>
+        <div class="resources">
+            <div class="res">
+                <div class="logo metal"></div>
+                <label class=""> @Model.ResourceRequirements.Metal </label>
+            </div>
+            <div class="res">
+                <div class="logo crystal"></div>
+                <label class="">@Model.ResourceRequirements.Crystal</label>
+            </div>
+            <div class="res">
+                <div class="logo gas"></div>
+                <label class="">@Model.ResourceRequirements.Gas</label>
+            </div>
+            <div class="res">
+                <div class="logo energy"></div>
+                <label class="">@Model.ResourceRequirements.Energy</label>
+            </div>
+            <div class="res">
+                <div class="logo level"></div>
+                <label>@Model.CurrentLevel</label>
+            </div>
         </div>
-        <div class="res">
-            <div class="logo gas"></div>
-            <label class="">@Model.ResourceRequirements.Gas</label>
+        <div class="image">
+            <img src="content/images/buildings/@Html.Raw(Model.BuildingType)" />
         </div>
-        <div class="res">
-            <div class="logo energy"></div>
-            <label class="">@Model.ResourceRequirements.Energy</label>
-        </div>
-        <div class="res">
-            <div class="logo level"></div>
-            <label>@Model.CurrentLevel</label>
-        </div>
-    </div>
-    <div class="image">
-        <img src="content/images/buildings/@Html.Raw(Model.BuildingType)"/>
-    </div>
-    <div class="opt">
-        <div class="description">
-            @Model.Description
-        </div>
-        <div class="time" id="time">
-            <div class="timer-logo"></div>
-            <label class="@if (Model.IsBuilding)
+        <div class="opt">
+            <div class="description">
+                @Model.Description
+            </div>
+            <div class="time" id="time">
+                <div class="timer-logo"></div>
+                <label class="@if (Model.IsBuilding)
                           {
-                              @:Building 
-                          }"> @String.Format(" {0:00} : {1:00} : {2:00}", Model.TimeLeft.Hours, Model.TimeLeft.Minutes, Model.TimeLeft.Seconds)</label>
+                              @:Building
+                                                 } ">@String.Format(" {0:00} : {1:00} : {2:00}", Model.TimeLeft.Hours, Model.TimeLeft.Minutes, Model.TimeLeft.Seconds)</label>
 
-        </div>
-        @if(!Model.IsBuilding && Model.IsBuildable)
-        {
-            <div class="build">
-                <div class="build-logo"></div>
-                @Html.ActionLink("Build Level " + (Model.CurrentLevel + 1), "CreateBuilding", "Buildings", new { name = Model.Name }, null)
-                
-            </div>
-        }
-        else if (Model.IsBuilding)
-        {
-            <div class="build">
-                <div class="build-logo"></div>
-                @Html.ActionLink("Cancel building", "CancelBuilding", "Buildings", new { name = Model.Name }, null)
-            </div>
-        }
-        else
-        {
-            <div class="build">
-                <div class="build-logo"></div>
-                <label class="err">@Model.ErrorMessage</label>
-            </div>
-        }
-    </div>
-    
+                                            </div>
+                                            @if (!Model.IsBuilding && Model.IsBuildable)
+                                            {
+                                                <div class="build">
+                                                    <div class="build-logo"></div>
+                                                    @Html.ActionLink("Build Level " + (Model.CurrentLevel + 1), "CreateBuilding", "Buildings", new { name = Model.Name }, null)
+
+                                                </div>
+                                            }
+                                            else if (Model.IsBuilding)
+                                            {
+                                                <div class="build">
+                                                    <div class="build-logo"></div>
+                                                    @Html.ActionLink("Cancel building", "CancelBuilding", "Buildings", new { name = Model.Name }, null)
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="build">
+                                                    <div class="build-logo"></div>
+                                                    <label class="err">@Model.ErrorMessage</label>
+                                                </div>
+                                            }
+                                        </div>
+
+                                    </div>
+                                    @* Put in logic *@
+                                    <div class="separator"></div>
 </div>
-
-@* Put in logic *@
-<div class="separator"></div>
