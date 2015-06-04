@@ -8,8 +8,9 @@ namespace OnixiaWebApplication.Controllers
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
-
+    using System.Web.Security;
     using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
 
@@ -152,6 +153,9 @@ namespace OnixiaWebApplication.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+
+                    await UserManager.AddToRoleAsync(user.Id, "Normal");
+                    //Roles.AddUserToRole(user.UserName, "Normal");
                     await SignInManager.SignInAsync(user, false, false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

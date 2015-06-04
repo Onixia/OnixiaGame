@@ -6,6 +6,8 @@
     using System.Data.Entity.Validation;
     using System.Diagnostics;
     using System.Linq;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Models.ObjectTemplates;
     using Models.PlayerAssets;
     using Models.Requirements;
@@ -187,6 +189,8 @@
 
         private void CreateBuildings(OnixiaDbContext context)
         {
+            this.CreateUserRoles(context);
+
             var buildings = new List<BuildingTemplate>
             {
                 new BuildingTemplate
@@ -314,6 +318,22 @@
                     }
                 }
             }
+        }
+
+        private void CreateUserRoles(OnixiaDbContext context)
+        {
+            var roleStore = new RoleStore<IdentityRole>(context);
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+            //roleManager.Create(new IdentityRole { Name = "Administrator" });
+            //roleManager.Create(new IdentityRole { Name = "Normal" });
+
+            var adminRole = new IdentityRole { Name = "Administrator", Id = Guid.NewGuid().ToString() };
+            var userRole = new IdentityRole { Name = "Normal", Id = Guid.NewGuid().ToString() };
+            context.Roles.Add(adminRole);
+            context.Roles.Add(userRole);
+
+            context.SaveChanges();
         }
     }
 }
