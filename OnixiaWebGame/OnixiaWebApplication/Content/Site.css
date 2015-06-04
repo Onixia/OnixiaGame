@@ -340,7 +340,8 @@ input.ships, input.deleteMessages {
 
 #res-title {
     width: 100%; 
-    height: 25px; 
+    height: 25px;
+    z-index: 999999;
     background: url(images/panel-bg.png) repeat;
     border-bottom: 1px solid #313F41;
 }
