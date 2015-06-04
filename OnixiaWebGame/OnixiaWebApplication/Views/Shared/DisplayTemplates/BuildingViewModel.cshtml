@@ -29,7 +29,9 @@
             <label>@Model.CurrentLevel</label>
         </div>
     </div>
-    <div class="image"> </div>
+    <div class="image">
+        <img src="content/images/buildings/@Html.Raw(Model.BuildingType)"/>
+    </div>
     <div class="opt">
         <div class="description">
             @Model.Description

@@ -79,6 +79,7 @@
                     CurrentLevel = currentLevel,
                     IsBuildable = isValid,
                     IsBuilding = isBuilding,
+                    BuildingType = building.BuildingType.ToString() + ".jpg",
                     TimeLeft = isBuilding ? (remainingTime - elapsedTime) : remainingTime,
                     ResourceRequirements = existingUserBuilding == null? building.ResourceRequirements : existingUserBuilding.CalculateCost(),
                     ErrorMessage = errorString
@@ -106,29 +107,35 @@
             var userPlanet = this.UserProfile.Planets.FirstOrDefault();
 
             var existingBuilding = userPlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.Id == buildingTemplate.Id);
+
+            bool newBuilding = false;
+
             if (existingBuilding == null)
             {
+                newBuilding = true;
                 existingBuilding = new PlanetBuilding()
                 {
                     BuildingLevel = 0,
+                    BuildingTemplate = buildingTemplate,
                     BuildingTemplateId = buildingTemplate.Id,
                     PlanetId = userPlanet.Id,
+                    Planet = userPlanet,
                     StartedOn = DateTime.Now
                 };
             }
-
 
             userPlanet.PlanetResourceses -= existingBuilding.CalculateCost();
             if (!userPlanet.PlanetResourceses.HasEnoughFor(existingBuilding.CalculateCost()))
             {
                 return new HttpNotFoundResult();
             }
-            else if (existingBuilding.BuildingLevel == 0)
+            else if (newBuilding)
             {
                 this.Data.PlanetBuildings.Add(existingBuilding);
             }
             else
             {
+                existingBuilding.StartedOn = DateTime.Now;
                 this.Data.PlanetBuildings.Update(existingBuilding);
                 this.Data.Planets.Update(userPlanet);
             }
@@ -161,6 +168,7 @@
                 if (DateTime.Now > b.StartedOn + b.BuildingTemplate.BuildTime)
                 {
                     b.BuildingLevel ++;
+                    b.StartedOn = null;
                     this.Data.SaveChanges();
                 }
             }

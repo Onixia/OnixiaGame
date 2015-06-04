@@ -1,50 +1,50 @@
 ﻿@model OnixiaWebApplication.Models.ShipViewModel
 
-<div id="content">
-    <div class="page">
-        <form class="ship-form">
-        <h2 class="title">@Model.Name</h2>
-            <div class="ship">
-                <div class="image">
-                </div>
-                <div class="info">
-                    <div class="line">
-                        <div class="title">Metal :</div>
-                        <label class="value">@Model.ShipCost.Metal</label>
+<form class="ship-form">
+    <h2 class="title"></h2>
+    <div class="ship">
+        <div class="image">
+            <label>@Model.Name</label>
+        </div>
+        <div class="info">
+            <div class="line">
+                <div class="title">Metal :</div>
+                <label class="value">@Model.ShipCost.Metal</label>
+            </div>
+            <div class="line">
+                <div class="title">Crystal :</div>
+                <label class="value">@Model.ShipCost.Crystal</label>
+            </div>
+            <div class="line">
+                <div class="title">Gas :</div>
+                <label class="value">@Model.ShipCost.Gas</label>
+            </div>
+            <div class="line">
+                <div class="title">Time needed</div>
+                <label class="value">@String.Format("{0:00} : {1:00} : {2:00} ", Model.BuildTime.Hours, Model.BuildTime.Minutes, Model.BuildTime.Seconds)</label>
+            </div>
+            <div class="line">
+                <div class="title">Available</div>
+                <div class="value">@Model.AvailableAmount</div>
+            </div>
+            <div class="line">
+                @if (@Model.CanBuild)
+                {
+                    <div class="title">Build</div>
+                    <input id="shipsQuantity" value="" />
+                    <a id="maxBuildQuantity">@Model.BuildableAmount</a>
+                }
+                else
+                {
+                    <div class="title">
+                        <label class="err">@Model.ErrorMessage</label>
                     </div>
-                    <div class="line">
-                        <div class="title">Crystal :</div>
-                        <label class="value">@Model.ShipCost.Crystal</label>
-                    </div>
-                    <div class="line">
-                        <div class="title">Gas :</div>
-                        <label class="value">@Model.ShipCost.Gas</label>
-                    </div>
-                    <div class="line">
-                        <div class="title">Time needed</div>
-                        <label class="value">@String.Format("{0:00} : {1:00} : {2:00} ", Model.BuildTime.Hours, Model.BuildTime.Minutes, Model.BuildTime.Seconds)</label>
-                    </div>
-                    <div class="line">
-                        <div class="title">Available</div>
-                        <div class="value">@Model.AvailableAmount</div>
-                    </div>
-                    <div class="line" style="background: none;">
-                        @if (@Model.CanBuild)
-                        {
-                            <div class="title">Build</div>
-                            <input id="shipsQuantity" value="" />
-                            <a id="maxBuildQuantity">@Model.BuildableAmount</a>
-                        }
-                        else{
-                            <div class="title">
-                                <label class="err">@Model.ErrorMessage</label>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div> 
-            <input hidden="hidden" id="shipName" value="@Model.Name" />
-            <button class="btn btn-primary" type="submit"> Build! </button>
-        </form>
+                }
+            </div>
+            <div class="line" style="text-align: center; background: none;">
+                <input hidden="hidden" id="shipName" value="@Model.Name" />
+                <button class="btn btn-primary" type="submit"> Build! </button>
+            </div>
+        </div>
     </div>
-</div>
+</form>
