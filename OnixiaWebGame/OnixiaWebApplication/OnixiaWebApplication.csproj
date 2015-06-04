@@ -235,12 +235,12 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AllBuildingsModel.cs" />
-    <Compile Include="Models\BuildingViewModel.cs" />
-    <Compile Include="Models\CombinedBuildingsViewModel.cs" />
+    <Compile Include="Models\ViewModels\BuildingViewModel.cs" />
+    <Compile Include="Models\ViewModels\CombinedBuildingsViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PlanetPostModel.cs" />
-    <Compile Include="Models\PlanetViewModel.cs" />
-    <Compile Include="Models\ShipViewModels.cs" />
+    <Compile Include="Models\ViewModels\PlanetViewModel.cs" />
+    <Compile Include="Models\ViewModels\ShipViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -324,9 +324,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-
     <Content Include="Scripts\OnixiaScripts.js" />
-
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\respond.js" />
@@ -399,6 +397,10 @@
     <ProjectReference Include="..\Onixia.Data\Onixia.Data.csproj">
       <Project>{7DB2C2A5-4C4F-498A-B7DD-A4ACCA352CF7}</Project>
       <Name>Onixia.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Onixia.Logic\Onixia.Logic.csproj">
+      <Project>{7d65208e-d1b5-4cde-be5c-a8a2992edfbe}</Project>
+      <Name>Onixia.Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\Onixia.Models\Onixia.Models.csproj">
       <Project>{8C67B592-98AA-4E63-9411-3098E58C1D86}</Project>

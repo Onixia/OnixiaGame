@@ -1,7 +1,7 @@
 ﻿@using System.Web.Mvc.Expressions
 @using Onixia.Models.PlayerAssets
 @using OnixiaWebApplication.Models;
-@model OnixiaWebApplication.Models.BuildingViewModel
+@model OnixiaWebApplication.Models.ViewModels.BuildingViewModel
 <div class="row">
     <div class="item">
         <div class="title">
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="image">
-            <img src="content/images/buildings/@Html.Raw(Model.BuildingType)" />
+            <img src="content/images/buildings/@Html.Raw(Model.BuildingType + ".jpg")" />
         </div>
         <div class="opt">
             <div class="description">

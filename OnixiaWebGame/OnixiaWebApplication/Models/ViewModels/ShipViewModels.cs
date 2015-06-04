@@ -1,4 +1,4 @@
-﻿namespace OnixiaWebApplication.Models
+﻿namespace OnixiaWebApplication.Models.ViewModels
 {
     using System;
     using System.Collections.Generic;

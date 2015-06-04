@@ -1,7 +1,8 @@
-﻿namespace Onixia.Data.Contracts
+﻿namespace Onixia.Models.Contracts
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Linq.Expressions;
     using Models.PlayerAssets;
 
@@ -16,7 +17,7 @@
 
         //Read
         T Get(object id);
-        ICollection<T> All();
+        IQueryable<T> All();
 
         //Update
         void Update(T entity);

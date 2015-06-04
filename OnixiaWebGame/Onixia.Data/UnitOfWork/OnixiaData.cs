@@ -1,4 +1,4 @@
-﻿namespace Onixia.Data.UnitOfWork
+﻿namespace Onixia.Models.UnitOfWork
 {
     using System;
     using System.Collections.Generic;

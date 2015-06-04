@@ -1,4 +1,4 @@
-﻿namespace Onixia.Data.Contracts
+﻿namespace Onixia.Models.Contracts
 {
     using Onixia.Models.ObjectTemplates;
     using System.Data.Entity;

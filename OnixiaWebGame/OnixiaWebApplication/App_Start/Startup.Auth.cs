@@ -9,7 +9,7 @@ using OnixiaWebApplication.Models;
 
 namespace OnixiaWebApplication
 {
-    using Onixia.Data;
+    using Onixia.Models;
     using Onixia.Models;
 
     public partial class Startup

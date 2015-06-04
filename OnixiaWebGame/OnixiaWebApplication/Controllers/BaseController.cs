@@ -7,7 +7,7 @@
 
     using Microsoft.AspNet.Identity;
 
-    using Onixia.Data.Contracts;
+    using Onixia.Models.Contracts;
     using Onixia.Models;
     using Onixia.Models.ObjectTemplates;
 

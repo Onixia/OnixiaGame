@@ -14,8 +14,8 @@ using OnixiaWebApplication.Models;
 
 namespace OnixiaWebApplication
 {
-    using Onixia.Data;
-    using Onixia.Data.Contracts;
+    using Onixia.Models;
+    using Onixia.Models.Contracts;
     using Onixia.Models;
 
     public class EmailService : IIdentityMessageService

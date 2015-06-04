@@ -1,4 +1,4 @@
-﻿namespace Onixia.Data
+﻿namespace Onixia.Models
 {
     using System.Data.Entity;
 

@@ -10,9 +10,9 @@ namespace OnixiaWebApplication.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using Onixia.Data;
-    using Onixia.Data.Contracts;
-    using Onixia.Data.UnitOfWork;
+    using Onixia.Models;
+    using Onixia.Models.Contracts;
+    using Onixia.Models.UnitOfWork;
 
     public static class NinjectWebCommon 
     {

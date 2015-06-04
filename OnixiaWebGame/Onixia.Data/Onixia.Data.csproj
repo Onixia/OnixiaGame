@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IMapFrom.cs" />
     <Compile Include="Contracts\IOnixiaData.cs" />
     <Compile Include="Contracts\IOnixiaDbContext.cs" />
     <Compile Include="Contracts\IRepository.cs" />

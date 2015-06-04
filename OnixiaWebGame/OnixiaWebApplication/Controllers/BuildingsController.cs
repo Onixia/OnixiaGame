@@ -3,14 +3,16 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Net;
     using System.Web.Mvc;
 
     using Models;
-
-    using Onixia.Data.Contracts;
+    using Models.ViewModels;
+    using Onixia.Models.Contracts;
     using Onixia.Models.PlayerAssets;
 
+    using AutoMapper.QueryableExtensions;
+
+    [Authorize]
     public class BuildingsController : BaseController
     {
         public BuildingsController(IOnixiaData data)
@@ -22,7 +24,7 @@
         // GET: Buildings
         public ActionResult Index()
         {
-            var buildings = this.Data.BuildingsTemplates.All();
+            var buildings = this.Data.BuildingsTemplates.All().Project().To<BuildingViewModel>().ToList();
             var userPlanet = this.UserProfile.Planets.FirstOrDefault();
             var userBuildings = userPlanet.PlanetBuildings;
             var buildingsList = new List<BuildingViewModel>();
@@ -71,19 +73,29 @@
 
                 var remainingTime = TimeSpan.FromSeconds(building.BuildTime.TotalSeconds*(currentLevel + 1));
 
-                BuildingViewModel newBuilding = new BuildingViewModel
-                {
-                    Name = building.Name,
-                    Description = building.Description,
-                    BuildingRequirements = building.BuildingRequirements,
-                    CurrentLevel = currentLevel,
-                    IsBuildable = isValid,
-                    IsBuilding = isBuilding,
-                    BuildingType = building.BuildingType.ToString() + ".jpg",
-                    TimeLeft = isBuilding ? (remainingTime - elapsedTime) : remainingTime,
-                    ResourceRequirements = existingUserBuilding == null? building.ResourceRequirements : existingUserBuilding.CalculateCost(),
-                    ErrorMessage = errorString
-                };
+                var newBuilding = building;
+                newBuilding.CurrentLevel = currentLevel;
+                newBuilding.IsBuildable = isValid;
+                newBuilding.IsBuilding = isBuilding;
+                //newBuilding.BuildingType = building.BuildingType.ToString() + ".jpg";
+                newBuilding.TimeLeft = isBuilding ? (remainingTime - elapsedTime) : remainingTime;
+                newBuilding.ResourceRequirements = existingUserBuilding == null
+                    ? building.ResourceRequirements
+                    : existingUserBuilding.CalculateCost();
+                newBuilding.ErrorMessage = errorString;
+
+                //{
+                //    Name = building.Name,
+                //    Description = building.Description,
+                //    BuildingRequirements = building.BuildingRequirements,
+                //    CurrentLevel = currentLevel,
+                //    IsBuildable = isValid,
+                //    IsBuilding = isBuilding,
+                //    BuildingType = building.BuildingType.ToString() + ".jpg",
+                //    TimeLeft = isBuilding ? (remainingTime - elapsedTime) : remainingTime,
+                //    ResourceRequirements = existingUserBuilding == null? building.ResourceRequirements : existingUserBuilding.CalculateCost(),
+                //    ErrorMessage = errorString
+                //};
 
 
                 buildingsList.Add(newBuilding);

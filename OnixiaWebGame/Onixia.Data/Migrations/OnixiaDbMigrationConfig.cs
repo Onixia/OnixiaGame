@@ -1,4 +1,4 @@
-﻿namespace Onixia.Data.Migrations
+﻿namespace Onixia.Models.Migrations
 {
     using System;
     using System.Collections.Generic;

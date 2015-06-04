@@ -2,7 +2,7 @@
 {
     using System.Web.Mvc;
 
-    using Onixia.Data.Contracts;
+    using Onixia.Models.Contracts;
 
     public class GameController : BaseController
     {

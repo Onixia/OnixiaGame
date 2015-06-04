@@ -4,7 +4,7 @@
     using System.Web.Mvc;
 
     using Models;
-    using Onixia.Data.Contracts;
+    using Onixia.Models.Contracts;
     using Onixia.Models;
     using Onixia.Models.PlayerAssets;
 

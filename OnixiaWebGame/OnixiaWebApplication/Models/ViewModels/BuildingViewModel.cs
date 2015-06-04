@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Onixia.Models.PlayerAssets;
-using Onixia.Models.Requirements;
-
-namespace OnixiaWebApplication.Models
+﻿namespace OnixiaWebApplication.Models.ViewModels
 {
-    public class BuildingViewModel
+    using System;
+    using System.Collections.Generic;
+    using Onixia.Logic.Mappings;
+    using Onixia.Models.ObjectTemplates;
+    using Onixia.Models.PlayerAssets;
+    using Onixia.Models.Requirements;
+
+    public class BuildingViewModel : IMapFrom<BuildingTemplate>
     {
+        public int Id { get; set; }
 
         public string Name { get; set; }
 
@@ -22,7 +23,9 @@ namespace OnixiaWebApplication.Models
 
         public TimeSpan TimeLeft { get; set; }
 
-        public string BuildingType { get; set; }
+        public BuildingType BuildingType { get; set; }
+
+        public TimeSpan BuildTime { get; set; }
 
         public bool IsBuildable { get; set; }
 

@@ -1,4 +1,4 @@
-﻿namespace Onixia.Data.Repositories
+﻿namespace Onixia.Models.Repositories
 {
     using System;
     using System.Collections.Generic;
@@ -45,9 +45,9 @@
             return this.set.Find(id);
         }
 
-        public ICollection<T> All()
+        public IQueryable<T> All()
         {
-            return this.set.ToList();
+            return this.set;
         }
 
         public T Update(object id)

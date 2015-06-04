@@ -1,18 +1,15 @@
-﻿using System;
-using Onixia.Models;
-using Onixia.Models.ObjectTemplates;
-using Onixia.Models.PlayerAssets;
-
-namespace OnixiaWebApplication.Controllers
+﻿namespace OnixiaWebApplication.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Models.ViewModels;
+    using Onixia.Models;
+    using Onixia.Models.Contracts;
+    using Onixia.Models.PlayerAssets;
 
-    using Models;
-
-    using Onixia.Data.Contracts;
-
+    [Authorize]
     public class ShipsController : BaseController
     {
         public ShipsController(IOnixiaData data)
@@ -23,7 +20,7 @@ namespace OnixiaWebApplication.Controllers
         // GET: Ships
         public ActionResult Index()
         {
-            var ships = this.Data.ShipsTemplates.All();
+            var ships = this.Data.ShipsTemplates.All().ToList();
             var userPlanet = this.UserProfile.Planets.FirstOrDefault();
             var userShips = userPlanet.Ships;
             var shipsList = new List<ShipViewModel>();
@@ -57,7 +54,8 @@ namespace OnixiaWebApplication.Controllers
 
                 foreach (var requirement in ship.BuildingRequirements)
                 {
-                    var currentWantedUserBuilding = userBuildings.FirstOrDefault(ub => ub.BuildingTemplate.Id == requirement.Id);
+                    var currentWantedUserBuilding =
+                        userBuildings.FirstOrDefault(ub => ub.BuildingTemplate.Id == requirement.Id);
                     if (currentWantedUserBuilding == null
                         || requirement.BuildingLevel > currentWantedUserBuilding.BuildingLevel
                         || !userPlanet.PlanetResourceses.HasEnoughFor(ship.ShipCost)
@@ -114,7 +112,7 @@ namespace OnixiaWebApplication.Controllers
 
             this.ViewBag.Resources = this.Data.Users.GetResources(this.UserProfile, this.UserProfile.Id);
 
-            return View(new ShipsModel(){Ships = shipsList});
+            return View(new ShipsModel {Ships = shipsList});
         }
 
         //[HttpPost]
@@ -136,12 +134,12 @@ namespace OnixiaWebApplication.Controllers
             var userPlanet = UserProfile.Planets.FirstOrDefault();
             if (WantedShip != null && userPlanet != null)
             {
-                ShipOrder shipOrder = new ShipOrder()
+                ShipOrder shipOrder = new ShipOrder
                 {
                     BuildTimeLength = WantedShip.BuildTime,
-                    Ships = new List<PlanetShip>()
+                    Ships = new List<PlanetShip>
                     {
-                        new PlanetShip()
+                        new PlanetShip
                         {
                             ShipId = WantedShip.Id,
                             ShipCount = count
