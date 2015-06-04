@@ -22,6 +22,8 @@ namespace OnixiaWebApplication.Models
 
         public TimeSpan TimeLeft { get; set; }
 
+        public string BuildingType { get; set; }
+
         public bool IsBuildable { get; set; }
 
         public bool IsBuilding { get; set; }

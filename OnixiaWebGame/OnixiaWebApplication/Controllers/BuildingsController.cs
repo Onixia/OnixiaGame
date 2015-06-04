@@ -79,6 +79,7 @@
                     CurrentLevel = currentLevel,
                     IsBuildable = isValid,
                     IsBuilding = isBuilding,
+                    BuildingType = building.BuildingType.ToString() + ".jpg",
                     TimeLeft = isBuilding ? (remainingTime - elapsedTime) : remainingTime,
                     ResourceRequirements = existingUserBuilding == null? building.ResourceRequirements : existingUserBuilding.CalculateCost(),
                     ErrorMessage = errorString
