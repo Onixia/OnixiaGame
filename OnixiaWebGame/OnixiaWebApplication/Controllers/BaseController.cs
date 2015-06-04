@@ -22,8 +22,6 @@
         protected BaseController(IOnixiaData data)
         {
             this.Data = data;
-            RefreshResources();
-            this.ViewBag.Metal = this.TempData["metal"];
         }
 
         protected User UserProfile { get; private set; }
@@ -37,6 +35,8 @@
                 this.UserProfile = user;
             }
 
+            RefreshResources();
+
             return base.BeginExecute(requestContext, callback, state);
         }
 
@@ -49,31 +49,45 @@
                 var buildings = this.Data.BuildingsTemplates.All();
                 var userPlanet = this.UserProfile.Planets.FirstOrDefault();
 
-                var currentTime = DateTime.Now;
+                if (userPlanet != null)
+                {
+                    var currentTime = DateTime.Now;
 
-                //if (userPlanet.LastUpdatedOn <= currentTime.AddMinutes(-1))
-                //{
-                var metalMineLevel = userPlanet.PlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.BuildingType == BuildingType.Metal).BuildingLevel;
-                var crystalMineLevel = userPlanet.PlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.BuildingType == BuildingType.Crystal).BuildingLevel;
-                var gasMineLevel = userPlanet.PlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.BuildingType == BuildingType.Gas).BuildingLevel;
-                var solarPanelsLevel = userPlanet.PlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.BuildingType == BuildingType.SolarPanels).BuildingLevel;
+                    TimeSpan incomeTimeSpan = (TimeSpan)(DateTime.Now - userPlanet.LastUpdatedOn);
 
-                var metalIncome = metalMineLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Metal).Income;
-                var crystalIncome = crystalMineLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Crystal).Income;
-                var gasIncome = gasMineLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Gas).Income;
-                var energyIncome = solarPanelsLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.SolarPanels).Income;
+                    var metalMine = userPlanet.PlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.BuildingType == BuildingType.Metal);
+                    var crystalMine = userPlanet.PlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.BuildingType == BuildingType.Crystal);
+                    var gasMine = userPlanet.PlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.BuildingType == BuildingType.Gas);
+                    var solarPanels = userPlanet.PlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.BuildingType == BuildingType.SolarPanels);
 
-                userPlanet.PlanetResourceses.Metal += metalIncome;
-                userPlanet.PlanetResourceses.Crystal += crystalIncome;
-                userPlanet.PlanetResourceses.Gas += gasIncome;
-                userPlanet.PlanetResourceses.Energy += energyIncome;
-                this.Data.SaveChanges();
-                //}
+                    if (metalMine != null)
+                    {
+                        var metalIncome = metalMine.BuildingLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Metal).Income;
+                        userPlanet.PlanetResourceses.Metal += (int)(metalIncome * (double)(incomeTimeSpan.TotalSeconds / 60));
+                    }
 
-                this.TempData["metal"] = userPlanet.PlanetResourceses.Metal;
-                this.ViewBag.Crystal = userPlanet.PlanetResourceses.Crystal;
-                this.ViewBag.Gas = userPlanet.PlanetResourceses.Gas;
-                this.ViewBag.Energy = userPlanet.PlanetResourceses.Energy;
+                    if (crystalMine != null)
+                    {
+                        var crystalIncome = crystalMine.BuildingLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Crystal).Income;
+                        userPlanet.PlanetResourceses.Crystal += (int)(crystalIncome * (double)(incomeTimeSpan.TotalSeconds / 60));
+                    }
+
+                    if (gasMine != null)
+                    {
+                        var gasIncome = gasMine.BuildingLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.Gas).Income;
+                        userPlanet.PlanetResourceses.Gas += (int)(gasIncome * (double)(incomeTimeSpan.TotalSeconds / 60));
+                    }
+
+                    if (solarPanels != null)
+                    {
+                        var energyIncome = solarPanels.BuildingLevel * buildings.FirstOrDefault(b => b.BuildingType == BuildingType.SolarPanels).Income;
+                        userPlanet.PlanetResourceses.Energy += (int)(energyIncome * (double)(incomeTimeSpan.TotalSeconds / 60));
+                    }
+
+                    userPlanet.LastUpdatedOn = DateTime.Now;
+
+                    this.Data.SaveChanges();
+                }
             }
         }
     }

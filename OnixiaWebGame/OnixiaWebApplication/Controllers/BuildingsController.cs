@@ -106,8 +106,12 @@
             var userPlanet = this.UserProfile.Planets.FirstOrDefault();
 
             var existingBuilding = userPlanetBuildings.FirstOrDefault(b => b.BuildingTemplate.Id == buildingTemplate.Id);
+
+            bool newBuilding = false;
+
             if (existingBuilding == null)
             {
+                newBuilding = true;
                 existingBuilding = new PlanetBuilding()
                 {
                     BuildingLevel = 0,
@@ -119,18 +123,18 @@
                 };
             }
 
-
             userPlanet.PlanetResourceses -= existingBuilding.CalculateCost();
             if (!userPlanet.PlanetResourceses.HasEnoughFor(existingBuilding.CalculateCost()))
             {
                 return new HttpNotFoundResult();
             }
-            else if (existingBuilding.BuildingLevel == 0)
+            else if (newBuilding)
             {
                 this.Data.PlanetBuildings.Add(existingBuilding);
             }
             else
             {
+                existingBuilding.StartedOn = DateTime.Now;
                 this.Data.PlanetBuildings.Update(existingBuilding);
                 this.Data.Planets.Update(userPlanet);
             }
